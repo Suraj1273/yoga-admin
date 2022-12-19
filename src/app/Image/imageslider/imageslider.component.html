@@ -1,0 +1,61 @@
+<div class="page-header">
+  <h3 class="page-title">Create Image slider</h3>
+  <br />
+  <button
+    type="button"
+    class="btn btn-outline-primary"
+    routerLink="/view-images"
+  >
+    Show All Images
+  </button>
+</div>
+
+<div class="row">
+  <div class="col-md-40 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Add image slider</h4>
+        <form class="forms-sample" #empForm>
+          <div class="col-md-50 p-0">
+            <div class="form-group col-lg-10 float-left">
+              <label>Meta Title</label>
+              <input
+                type="text"
+                value=""
+                name="metatitle"
+                placeholder="Meta title"
+                class="form-control"
+              />
+            </div>
+
+            <div class="form-group col-lg-10 float-left">
+              <label>Meta discription</label>
+              <input
+                type="text"
+                value=""
+                name="metadiscription"
+                placeholder="Meta discription"
+                class="form-control"
+              />
+            </div>
+
+            <div class="form-group col-lg-10 float-left">
+              <label>Meta Keyword</label>
+              <input
+                type="text"
+                value=""
+                name="metakeyword"
+                placeholder="Meta Keyword"
+                class="form-control"
+              />
+            </div>
+
+            <div class="form-group col-lg-6 float-left">
+              <input type="file" title="Choose Image" />
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,324 @@
+        <div class="main-content container-fluid row">
+            <form novalidate="" class="ng-invalid ng-touched ng-dirty">
+                <div class="col-lg-4 col-md-4 col-sm-4 float-left fixed card c1">
+                    <div class="card-header card-header-success">
+                        <h4 class="card-title">Checks</h4>
+                    </div>
+                    <div class="card-body px-0  px-3 col-md-12">
+                        <div class="form-group col-md-6 float-left">
+                            <label>Client</label>
+                            <select name="clientId" required="" class="form-control ng-dirty ng-valid ng-touched">
+                                <option value="undefined">Select Client</option>
+                                <option value="36">Awfis Space Solutions Pvt Ltd.</option>
+                            
+                                <!---->
+                            </select>
+                            <div class="invalid-feedback">Client is required</div>
+                        </div>
+                        <!---->
+                        <!---->
+                        <div class="form-group col-md-6 float-left">
+                            <label>Process</label>
+                            <select name="process" required="" class="form-control ng-touched ng-dirty ng-valid">
+                                <option value="undefined">Select Process</option>
+                                <option value="17">KTPL</option>
+                                <!---->
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6 float-left">
+                            <label>Candidate Name</label>
+                            <input type="text" value="" name="candidatename" placeholder="Candidate Name" required="" class="form-control ng-untouched ng-pristine ng-invalid" />
+                            <div class="invalid-feedback">Candidate Name is required</div>
+                        </div>
+                        <div class="form-group col-md-6 float-left">
+                            <label>Date of Birth</label>
+                            <input type="date" value="" name="dob" placeholder="dob" required="" class="form-control ng-untouched ng-pristine ng-invalid" />
+                            <div class="invalid-feedback">Dob is required</div>
+                        </div>
+                        <div class="form-group col-md-6 float-left">
+                            <label>Date of Joining</label>
+                            <input type="date" value="" name="doj" placeholder="Date of Joining" class="form-control ng-untouched ng-pristine ng-valid" />
+                        </div>
+                        <div class="form-group col-md-6 float-left">
+                            <label>Employee Id</label>
+                            <input type="text" value="" name="empid" placeholder="Emp ID" class="form-control ng-untouched ng-pristine ng-valid" />
+                        </div>
+                        <div class="form-group col-md-6 float-left">
+                            <label>Father Name</label>
+                            <input type="text" value="" name="fname" placeholder="Father Name" class="form-control ng-untouched ng-pristine ng-valid" />
+                        </div>
+                        <div class="form-group col-md-6 float-left">
+                            <label>Phone Number</label>
+                            <input type="number" value="" name="phone" placeholder="Phone Number" class="form-control ng-untouched ng-pristine ng-valid" />
+                        </div>
+                        <div class="form-group col-md-6 float-left">
+                            <label>Candidate Email</label>
+                            <input type="email" value="" name="email" placeholder="Candidate Email ID" class="form-control ng-untouched ng-pristine ng-valid" />
+                            <label>
+                            <input type="checkbox" class="ng-untouched ng-pristine ng-valid" /> Invite Candidate to fill details?</label>
+                        </div>
+                        <div class="form-group col-md-6 float-left">
+                            <label>Reinitiate Date</label>
+                            <input type="date" value="" name="reinDate" placeholder="Reinitiate Date" class="form-control ng-untouched ng-pristine ng-valid" />
+                        </div>
+                        <div class="form-group col-md-6 float-left">
+                            <label>Completion Date</label>
+                            <input type="date" value="" name="compDate" placeholder="Completion Date" class="form-control ng-untouched ng-pristine ng-valid" />
+                        </div>
+                        <div class="form-group col-md-6 float-left">
+                            <label>In-suff raised Date</label>
+                            <input type="date" value="" name="insuffDate" placeholder="In-suff raised Date" class="form-control ng-untouched ng-pristine ng-valid" />
+                        </div>
+                        <div class="form-group col-md-6 float-left">
+                            <label>In-suff cleared Date</label>
+                            <input type="date" value="" name="insuffclearDate" placeholder="In-suff cleared Date" class="form-control ng-untouched ng-pristine ng-valid" />
+                        </div>
+                        <div class="form-group col-md-6 float-left">
+                            <label>Location</label>
+                            <input type="text" value="" name="location" placeholder="Client Location" class="form-control ng-untouched ng-pristine ng-valid" />
+                        </div>
+                        <div class="form-group col-md-6 float-left">
+                            <label>TAT start Date</label>
+                            <input type="date" value="" name="tatstart" placeholder="tat" class="form-control ng-untouched ng-pristine ng-valid" />
+                        </div>
+                        <div class="form-group col-md-6 float-left">
+                            <label>TAT end Date</label>
+                            <input type="date" value="" name="tatend" placeholder="tat" class="form-control ng-untouched ng-pristine ng-valid" />
+                        </div>
+                        <div class="form-group col-md-6 float-left">
+                            <label>Total Days as Per TAT range</label>
+                            <input type="text" value="" name="tat" placeholder="" class="form-control ng-untouched ng-pristine ng-valid" />
+                        </div>
+                        <div class="col-md-8 float-left">
+                            <label for="">Add Files</label>
+                            <input type="file" multiple="multiple" name="vby5" />
+                            <!---->
+                            <!---->
+                        </div>
+                        <div class="col-md-4 float-left form-group float-left col-md-12">
+                            <button type="submit" class="btn btn-info btnpadd">Submit</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 float-left fixed card c2">
+                    <div class="card-header card-header-success">
+                        <h4 class="card-title">Application - Candidate</h4>
+                    </div>
+                    <div class="card-body px-0 d-flex flex-column justify-content-between align-items-baseline px-3">
+                        <div class="col-md-12">
+                            <h5>Employment</h5>
+                            <div class="form-group col-md-6 float-left">
+                                <label>Name Of The Organization</label>
+                                <!---->
+                                <!---->
+                                <input type="text" value="" class="form-control ng-untouched ng-pristine ng-valid" placeholder="Enter Name Of The Organization" />
+                            </div>
+                            <div class="form-group col-md-6 float-left">
+                                <label>Cin</label>
+                                <!---->
+                                <!---->
+                                <input type="text" value="" class="form-control ng-untouched ng-pristine ng-valid" placeholder="Enter Cin" />
+                            </div>
+                            <div class="form-group col-md-6 float-left">
+                                <label>Employment Period</label>
+                                <!---->
+                                <!---->
+                                <input type="text" value="" class="form-control ng-untouched ng-pristine ng-valid" placeholder="Enter Employment Period" />
+                            </div>
+                            <div class="form-group col-md-6 float-left">
+                                <label>Designation</label>
+                                <!---->
+                                <!---->
+                                <input type="text" value="" class="form-control ng-untouched ng-pristine ng-valid" placeholder="Enter Designation" />
+                            </div>
+                            <div class="form-group col-md-6 float-left">
+                                <label>Employee Code</label>
+                                <!---->
+                                <!---->
+                                <input type="text" value="" class="form-control ng-untouched ng-pristine ng-valid" placeholder="Enter Employee Code" />
+                            </div>
+                            <div class="form-group col-md-6 float-left">
+                                <label>Ctc</label>
+                                <!---->
+                                <!---->
+                                <input type="text" value="" class="form-control ng-untouched ng-pristine ng-valid" placeholder="Enter Ctc" />
+                            </div>
+                            <div class="form-group col-md-6 float-left">
+                                <label>Reasons For Leaving</label>
+                                <!---->
+                                <!---->
+                                <input type="text" value="" class="form-control ng-untouched ng-pristine ng-valid" placeholder="Enter Reasons For Leaving" />
+                            </div>
+                            <div class="form-group col-md-6 float-left">
+                                <label>Subject�s Eligibility For Rehire</label>
+                                <!---->
+                                <!---->
+                                <input type="text" value="" class="form-control ng-untouched ng-pristine ng-valid" placeholder="Enter Subject�s Eligibility For Rehire" />
+                            </div>
+                            <div class="form-group col-md-6 float-left">
+                                <label>Full And Final Formalities</label>
+                                <!---->
+                                <!---->
+                                <input type="text" value="" class="form-control ng-untouched ng-pristine ng-valid" placeholder="Enter Full And Final Formalities" />
+                            </div>
+                            <div class="form-group col-md-6 float-left">
+                                <label>Any Disciplinary Or Performance Issues</label>
+                                <!---->
+                                <!---->
+                                <input type="text" value="" class="form-control ng-untouched ng-pristine ng-valid" placeholder="Enter Any Disciplinary Or Performance Issues" />
+                            </div>
+                            <div class="form-group col-md-6 float-left">
+                                <label>Response From Referee</label>
+                                <!---->
+                                <!---->
+                                <input type="text" value="" class="form-control ng-untouched ng-pristine ng-valid" placeholder="Enter Response From Referee" />
+                            </div>
+                            <div class="form-group col-md-6 float-left">
+                                <label>Other Comment</label>
+                                <!---->
+                                <!---->
+                                <input type="text" value="" class="form-control ng-untouched ng-pristine ng-valid" placeholder="Enter Other Comment" />
+                            </div>
+                            <div class="form-group col-md-6 float-left">
+                                <label>Date Of Verification</label>
+                                <!---->
+                                <!---->
+                                <input type="text" value="" class="form-control ng-untouched ng-pristine ng-valid" placeholder="Enter Date Of Verification" />
+                            </div>
+                            <div class="form-group col-md-6 float-left">
+                                <label>Referee Name And Details</label>
+                                <!---->
+                                <!---->
+                                <input type="text" value="" class="form-control ng-untouched ng-pristine ng-valid" placeholder="Enter Referee Name And Details" />
+                            </div>
+                            <div class="form-group col-md-6 float-left">
+                                <label>Employment Entity</label>
+                                <!---->
+                                <!---->
+                                <input type="text" value="" class="form-control ng-untouched ng-pristine ng-valid" placeholder="Enter Employment Entity" />
+                            </div>
+                            <!---->
+                            <label>Document</label>
+                            <input type="file" />
+                            <!---->
+                        </div>
+                        <div class="col-md-12">
+                            <h5>Education</h5>
+                            <div class="form-group col-md-6 float-left">
+                                <label>University Or Board Or College Or Institute Name</label>
+                                <!---->
+                                <!---->
+                                <input type="text" value="" class="form-control ng-untouched ng-pristine ng-valid" placeholder="Enter University Or Board Or College Or Institute Name" />
+                            </div>
+                            <div class="form-group col-md-6 float-left">
+                                <label>Roll Number Or Registration Number</label>
+                                <!---->
+                                <!---->
+                                <input type="text" value="" class="form-control ng-untouched ng-pristine ng-valid" placeholder="Enter Roll Number Or Registration Number" />
+                            </div>
+                            <div class="form-group col-md-6 float-left">
+                                <label>Course</label>
+                                <!---->
+                                <!---->
+                                <input type="text" value="" class="form-control ng-untouched ng-pristine ng-valid" placeholder="Enter Course" />
+                            </div>
+                            <div class="form-group col-md-6 float-left">
+                                <label>Year Of Passing</label>
+                                <!---->
+                                <!---->
+                                <input type="text" value="" class="form-control ng-untouched ng-pristine ng-valid" placeholder="Enter Year Of Passing" />
+                            </div>
+                            <div class="form-group col-md-6 float-left">
+                                <label>Authenticity Of University</label>
+                                <!---->
+                                <!---->
+                                <input type="text" value="" class="form-control ng-untouched ng-pristine ng-valid" placeholder="Enter Authenticity Of University" />
+                            </div>
+                            <div class="form-group col-md-6 float-left">
+                                <label>Date Of Verification</label>
+                                <!---->
+                                <!---->
+                                <input type="text" value="" class="form-control ng-untouched ng-pristine ng-valid" placeholder="Enter Date Of Verification" />
+                            </div>
+                            <div class="form-group col-md-6 float-left">
+                                <label>Verifier Name And Contact Details</label>
+                                <!---->
+                                <!---->
+                                <input type="text" value="" class="form-control ng-untouched ng-pristine ng-valid" placeholder="Enter Verifier Name And Contact Details" />
+                            </div>
+                            <div class="form-group col-md-6 float-left">
+                                <label>Final Remarks</label>
+                                <!---->
+                                <!---->
+                                <input type="text" value="" class="form-control ng-untouched ng-pristine ng-valid" placeholder="Enter Final Remarks" />
+                            </div>
+                            <div class="form-group col-md-6 float-left">
+                                <label>Education Entity</label>
+                                <!---->
+                                <!---->
+                                <input type="text" value="" class="form-control ng-untouched ng-pristine ng-valid" placeholder="Enter Education Entity" />
+                            </div>
+                            <!---->
+                            <label>Document</label>
+                            <input type="file" />
+                            <!---->
+                        </div>
+                        <div class="col-md-12">
+                            <h5>Criminal</h5>
+                            <div class="form-group col-md-6 float-left">
+                                <label>Candidate Address</label>
+                                <!---->
+                                <!---->
+                                <input type="text" value="" class="form-control ng-untouched ng-pristine ng-valid" placeholder="Enter Candidate Address" />
+                            </div>
+                            <div class="form-group col-md-6 float-left">
+                                <label>Criminal Records Verification</label>
+                                <!---->
+                                <!---->
+                                <input type="text" value="" class="form-control ng-untouched ng-pristine ng-valid" placeholder="Enter Criminal Records Verification" />
+                            </div>
+                            <div class="form-group col-md-6 float-left">
+                                <label>Response From Referee</label>
+                                <!---->
+                                <!---->
+                                <input type="text" value="" class="form-control ng-untouched ng-pristine ng-valid" placeholder="Enter Response From Referee" />
+                            </div>
+                            <div class="form-group col-md-6 float-left">
+                                <label>Any Other Comments</label>
+                                <!---->
+                                <!---->
+                                <input type="text" value="" class="form-control ng-untouched ng-pristine ng-valid" placeholder="Enter Any Other Comments" />
+                            </div>
+                            <div class="form-group col-md-6 float-left">
+                                <label>Date Of Verification</label>
+                                <!---->
+                                <!---->
+                                <input type="text" value="" class="form-control ng-untouched ng-pristine ng-valid" placeholder="Enter Date Of Verification" />
+                            </div>
+                            <div class="form-group col-md-6 float-left">
+                                <label>Verifier�s Details</label>
+                                <!---->
+                                <!---->
+                                <input type="text" value="" class="form-control ng-untouched ng-pristine ng-valid" placeholder="Enter Verifier�s Details" />
+                            </div>
+                            <div class="form-group col-md-6 float-left">
+                                <label>Criminal Entity</label>
+                                <!---->
+                                <!---->
+                                <input type="text" value="" class="form-control ng-untouched ng-pristine ng-valid" placeholder="Enter Criminal Entity" />
+                            </div>
+                            <!---->
+                            <label>Document</label>
+                            <input type="file" />
+                            <!---->
+                        </div>
+                        <!---->
+                        <hr />
+                        <div class="form-group float-left col-md-12">
+                            <button type="submit" class="btn btn-info btnpadd">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    

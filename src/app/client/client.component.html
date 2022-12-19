@@ -1,0 +1,248 @@
+
+<div class="page-header">
+    <h3 class="page-title">
+    Client
+    </h3>
+
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Add Client</h4>
+          <!-- <p class="card-description">
+
+          </p> -->
+          <form class="forms-sample" #client="ngForm" (ngSubmit)="insertClient(formData)">
+
+
+                            <div class=" col-md-12 p-0">
+                                <div class=" col-lg-12 float-left">
+                                    <label>Client Logo</label>
+                                    <input #cliFile type="file" value="" name="logoclient" (change)="getLogo($event)" class="form-control" />
+                                    <div *ngIf="clientImgsrc">
+                                        <img [src]="clientImgsrc" width="100px">
+                                        <a class="btn btn-sm btn-danger" (click)="removePreview(cliFile)">Remove</a>
+                                    </div>
+                                </div>
+                                <div class="form-group col-lg-6 float-left">
+                                    <input type="text" value="" name="name" [(ngModel)]="formData.name" placeholder="Name" class="form-control" />
+                                </div>
+                                <div class="form-group col-lg-6 float-left">
+                                    <input type="text" value="" name="altName" [(ngModel)]="formData.altName" placeholder="Alt Name" class="form-control" />
+                                </div>
+
+                                <div class="form-group col-lg-6 float-left">
+                                    <input type="email" value="" name="email" [(ngModel)]="formData.email" placeholder="Email" class="form-control" />
+                                </div>
+                                <div class="form-group col-lg-6 float-left">
+                                    <input type="password" value="" name="password" [(ngModel)]="formData.password" placeholder="Password" class="form-control" />
+                                </div>
+                                <div class="form-group col-lg-6 float-left">
+                                    <input type="text" value="" name="phoneNumber" [(ngModel)]="formData.phoneNumber" placeholder="Phone Number" class="form-control" />
+                                </div>
+
+
+
+                                <div class="form-group col-lg-6 float-left">
+                                    <input type="text" value="" name="primaryContactName" [(ngModel)]="formData.primaryContactName" placeholder="Primary Contact Name" class="form-control" />
+                                </div>
+
+                                <div class="form-group col-lg-6 float-left">
+                                    <input type="text" value="" name="appCodePrefix" [(ngModel)]="formData.appCodePrefix" placeholder="Application Code Prefix" class="form-control" />
+                                </div>
+
+
+                                <div class="form-group col-lg-6 float-left">
+                                    <input type="text" value="" name="checkNumberPrefix" [(ngModel)]="formData.checkCodePrefix" placeholder="Check Number Prefix" class="form-control" />
+                                </div>
+                                <table *ngIf="proCounter" class="table">
+                                    <thead>
+                                      <tr>
+                                        <th scope="col">Sno.</th>
+                                        <th scope="col">Process Name</th>
+                                        <th scope="col">Alt Process Name</th>
+                                        <th scope="col">Process Checks</th>
+                                        <!-- <th scope="col">Action</th> -->
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr *ngFor="let process of processList; let i= index">
+                                       <td>{{i+1}}</td>
+                                        <td>{{process.process}}</td>
+                                        <td>{{process.altprocess}}</td>
+                                        <td>
+                                            <span *ngFor="let data of process.checkList">
+                                                {{data.checkName}}
+                                                <br>
+                                                {{data.checkPrice}}
+                                            </span>
+                                        </td>
+                                        <td>
+                                         <a class="btn btn-sm btn-primary" (click)="processData=process;openModal(updateProcessModal,process,processList)">edit</a>
+                                         <a class="btn btn-sm btn-danger" (click)="deleteProcess(process,processList)">Delete</a>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                <a *ngIf="proCounter" href="javascript:void(0)" (click)="addProcessModal(insProcessModal,processList)" class="btn btn-sm btn-success">Add More +</a>
+                                <div *ngIf="!proCounter">
+                                <div class="form-group" *ngFor="let pro of formData.processList; let i = index;">
+                                    <div class="col-lg-6 float-left">
+
+                                    <input type="text" value="" name="process_{{i}}" (change)="getProcessChecksByName($event)" [(ngModel)]="pro.process" placeholder="Process" class="form-control" />
+                                    <input class="form-control" placeholder="Price" name="processPrice_{{i}}" [(ngModel)]="pro.processPrice">
+                                </div>
+                                <div class="col-lg-6 float-left">
+
+                                    <input type="text" value="" name="altprocess_{{i}}" [(ngModel)]="pro.altprocess" placeholder="Alt Process Name" class="form-control" />
+                                    <br>
+                                </div>
+                                   <div class="col-lg-12 float-left">
+                                    <label>Select Checks</label>
+                                    <ul class="p-0">
+                                        <li *ngFor="let check of pro.checkList" class="list-unstyled col-lg-4 float-left">
+                                            <label>
+                                                <input type="checkbox"  name="check_{{check.checkName}}" (change)="getChecksArr($event,i)"  [(ngModel)]="check.checkName">
+                                                {{check.checkName}}
+                                            </label>
+                                            <input class="form-control" placeholder="Price" name="checkPrice_{{check.checkName}}" [(ngModel)]="check.checkPrice">
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                </div>
+                            </div>
+                            <br>
+                            <br>
+                            <br>
+
+                            <div class="form-group col-lg-12 text-center pull-left" >
+                                <a *ngIf="!proCounter" href="javascript:void(0)" (click)="addProcess1()"  class="btn btn-sm btn-success">Add More +</a>
+
+                              </div>
+                                <div class="form-group col-lg-12 text-center pull-right">
+                                    <button  class="btn btn-info btn-sm mx-2 filter-toggle"
+                                    style="padding:0.45rem 0.25rem" data-toggle="collapse" data-target="#collapseExample"
+                                    aria-expanded="false" aria-controls="collapseExample">
+                                    Submit
+                                </button>
+                                </div>
+
+                            </div>
+
+                           </form>
+
+
+    </div>
+</div>
+</div>
+<!-- col-md-6 -->
+
+<div class="col-md-6 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Clients</h4>
+        <!-- <input type="search" class="form-control bg-light" placeholder="Search Client here..." (keyup.enter)="getSearchData($event)"> -->
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <td>Name</td>
+                        <td>Phone</td>
+                        <!-- <td>Email Id</td> -->
+                        <td>Contact Person</td>
+                        <!-- <td>Checks</td> -->
+                        <td>Actions</td>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let client of clientList">
+                        <td>{{client.name}}</td>
+                        <td>{{client.phoneNumber}}</td>
+                        <td>{{client.primaryContactName}}</td>
+                        <td class="td-actions">
+                            <button  type="button" matTooltip="Edit Task"
+                             class="btn btn-primary btn-link btn-sm btn-just-icon"  [routerLink]="['/client',client._id]">
+                                <i class="material-icons">edit</i>
+                            </button>
+                            <button  type="button" (click)="deleteClient(client._id)" matTooltip="Remove" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                                <i class="material-icons">delete</i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+                <!-- <pagination-controls  (pageChange)="onTableDataChange($event)"></pagination-controls> -->
+                <!-- | paginate: { itemsPerPage: 10, currentPage: p, totalItems:paginationTotal } -->
+            </table>
+
+        </div>
+        </div>
+</div>
+</div>
+
+<ng-template #insProcessModal let-modal class="modal fade" id="exampleModal-3" aria-labelledby="exampleModalLabel-3">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel-3">Insert Process</h5>
+      <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+   <form #insProcess="ngForm" (ngSubmit)="insertProcess(insData)">
+                <input type="text" value="" name="process" (change)="getProcessChecksByName($event)" [(ngModel)]="insData.process" placeholder="Process" class="form-control" />
+
+                <input type="text" value="" name="altprocess" [(ngModel)]="insData.altprocess" placeholder="ALt Process" class="form-control" />
+
+                <label>Select Checks</label>
+                <ul>
+                    <li *ngFor="let check of checkList" class="list-unstyled">
+                        <label>
+                            <input type="checkbox" (change)="getInsertChecks($event)"  name="check{{check.id}}"  value="{{check.checkName}}">
+                            {{check.checkName}}
+                        </label>
+                    </li>
+                </ul>
+                <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+            </form>
+    </div>
+    <div class="modal-footer">
+      <!-- <button type="button" class="btn btn-success" (click)="modal.close()">Submit</button> -->
+      <button type="button" class="btn btn-light" (click)="modal.close()">Cancel</button>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #updateProcessModal let-modal class="modal fade" id="exampleModal-2" aria-labelledby="exampleModalLabel-2">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel-2">Update Process</h5>
+      <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form >
+        <input type="text" value="" name="process" [(ngModel)]="processData.process" placeholder="Process" class="form-control" />
+        <input type="text" value="" name="altprocess" [(ngModel)]="processData.altprocess" placeholder="Alt Process Name" class="form-control" />
+        <label>Select Checks</label>
+        <ul>
+            <li *ngFor="let check of processData.checkList" class="list-unstyled">
+                <label>
+                    <input type="checkbox" (change)="getUpdateChecks($event)"  name="check{{check._id}}" [checked]="checkThis(check.checkName)" value="{{check.checkName}}">
+                    {{check.checkName}}
+                </label>
+            </li>
+        </ul>
+        <button type="submit" class="btn btn-primary btn-sm" (click)="insertClient(formData)">Submit</button>
+    </form>
+    </div>
+    <div class="modal-footer">
+      <!-- <button type="button" class="btn btn-success" (click)="modal.close()">Submit</button> -->
+      <button type="button" class="btn btn-light" (click)="modal.close()">Cancel</button>
+    </div>
+  </div>
+</ng-template>
