@@ -33,7 +33,6 @@ import { AddmentorComponent } from './Mentor/addmentor/addmentor.component';
 import { MentorsComponent } from './Mentor/mentors/mentors.component';
 import { ImagesliderComponent } from './Image/imageslider/imageslider.component';
 import { ViewImagesComponent } from './Image/view-images/view-images.component';
-
 @NgModule({
   declarations: [
     AppComponent,

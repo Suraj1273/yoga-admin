@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./addcourse.component.scss']
 })
 export class AddcourseComponent implements OnInit {
-
+ details:any={};
   constructor() { }
 
   ngOnInit(): void {
+  }
+  getvalues(data:any){
+  this.details = data;
+  console.log(this.details)
   }
 
 }
