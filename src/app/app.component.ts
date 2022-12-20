@@ -8,14 +8,16 @@ import { Router, NavigationEnd, NavigationStart, RouteConfigLoadStart, RouteConf
 })
 export class AppComponent implements OnInit{
   title = 'Verify Portal';
-
   showSidebar: boolean = true;
   showNavbar: boolean = true;
   showFooter: boolean = true;
   isLoading: boolean;
-
-  constructor(private router: Router) {
-    
+  post:any;
+  constructor(private router: Router){
+  //  this.post.getposts().subscribe((res)=>{
+  //    this.post = res;
+  //    console.log(this.post)
+  //  })
     // Removing Sidebar, Navbar, Footer for Documentation, Error and Auth pages
     router.events.forEach((event) => { 
       if(event instanceof NavigationStart) {
@@ -51,9 +53,6 @@ export class AppComponent implements OnInit{
       }
     });
   }
-
-
-
   ngOnInit() {
     // Scroll to top after route change
     this.router.events.subscribe((evt) => {
@@ -63,4 +62,11 @@ export class AppComponent implements OnInit{
       window.scrollTo(0, 0);
     });
   }
+
+
+
+
+
+
+
 }

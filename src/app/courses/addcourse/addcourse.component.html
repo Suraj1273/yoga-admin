@@ -10,16 +10,16 @@
     <div class="card">
       <div class="card-body">
         <h4 class="card-title">New Course Information</h4>
-        <form class="forms-sample" #empForm>
+        <form class="forms-sample" #empForm (ngSubmit)="getvalues(empForm.value)">
                               <div class=" col-md-50 p-0">
                                   <div class="form-group col-lg-6 float-left">
                                       <label>Course Title</label>
-                                      <input type="text" value="" name="coursetitle" placeholder="course title" class="form-control" />
+                                      <input type="text" value="" name="coursetitle" placeholder="course title" class="form-control" ngModel/>
                                   </div>
                               
                                   <div class="form-group col-lg-3 float-left">
                                     <label>Status</label>
-                                    <select class="form-control" name="status" name="status">
+                                    <select class="form-control" name="status" ngModel>
                                       <option value="undefined">Select</option>
                                         <option value="1">Active</option>
                                         <option value="0">Inactive</option>
@@ -29,26 +29,26 @@
                                   <div class="form-group col-lg-36 float-left">
                                     <label>Course Short Description
                                     </label>
-                                       <textarea name="textarea" cols="200" rows="5" class="form-control" placeholder="course short description 200 char max."></textarea>
+                                       <textarea name="textarea" cols="200" rows="5" class="form-control" placeholder="course short description 200 char max." ngModel></textarea>
                                   </div>
                              
                                   <div class="form-group col-lg-4 float-left">
                                     <span name="coursevideosource">
                                     <h4>course intro video source</h4>
                                     <label for="Youtube">Youtube</label>
-                                    <input id="youtube" type="radio" value="1" name="intro"><br>
+                                    <input id="youtube" type="radio" value="1" name="intro" ngModel><br>
                                     <label for="Wista">Wista</label>
-                                    <input id="Wista" type="radio" value="1" name="intro">
+                                    <input id="Wista" type="radio" value="1" name="intro" ngModel>
                                   </span>                                                                    
                                </div>
                                <hr>
                                <div class="form-group col-lg-3 float-left">
                                 <label>Course Title</label>
-                                <input type="text" value="" name="coursetitle" placeholder="course title" class="form-control" />
+                                <input type="text" value="" name="coursetitle" placeholder="course title" class="form-control" ngModel/>
                             </div>
 
                             <div class="form-group col-lg-5  float-left">
-                              <select class="form-select" aria-label="Default select example">
+                              <select class="form-select" aria-label="Default select example" ngModel name="form-select">
                                 <option selected>Open this select menu</option>
                                 <option value="1">One</option>
                                 <option value="2">Two</option>
@@ -58,26 +58,29 @@
                                             
                                   <div class="form-group col-lg-6 float-left">
                                     <label>Course SEO Title</label>
-                                    <input type="text" name="courseseotitle" placeholder="Course SEO Title" class="form-control"/>
+                                    <input type="text" name="courseseotitle" placeholder="Course SEO Title" class="form-control" ngModel/>
                                   </div>
 
                                   <div class="form-group col-lg-6 float-left">
                                     <label>Course SEO Keywords</label>
-                                    <input type="text" name="courseseokeyword" placeholder="Course SEO Keywords" class="form-control"/>
+                                    <input type="text" name="courseseokeyword" placeholder="Course SEO Keywords" class="form-control" ngModel/>
                                   </div>
                                   <div class="form-group col-lg-16 float-left">
                                     <label>Course SEO Description</label>
-                                    <input type="text" size='130' name="courseseodiscription" placeholder="Course SEO Description" class="form-control"/>
+                                    <input type="text" size='130' name="courseseodiscription" placeholder="Course SEO Description" class="form-control" ngModel/>
                                   </div>
-                              </div>    
-                              
+                              </div>                               
                               <div>
                                 <h3>
                                 cancel
                                 </h3>
-                             <button type="button" class="btn btn-outline-primary" routerLink="">Save course Information</button>
+                             <button type="submit" class="btn btn-outline-primary">Save course Information</button>
                             </div>        
                              </form>
   </div>
 </div>
 </div>
+
+<pre>
+    <h1>{{details | json}}</h1>
+</pre>
