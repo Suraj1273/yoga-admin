@@ -61,8 +61,7 @@ import { ViewImagesComponent } from './Image/view-images/view-images.component';
     AddmentorComponent,
     MentorsComponent,
     ImagesliderComponent,
-    ViewImagesComponent
-
+    ViewImagesComponent,
   ],
   imports: [
     BrowserModule,
@@ -73,6 +72,7 @@ import { ViewImagesComponent } from './Image/view-images/view-images.component';
     ReactiveFormsModule,
     ChartsModule,
     HttpClientModule,
+
   ],
   providers: [ThemeService],
   bootstrap: [AppComponent]

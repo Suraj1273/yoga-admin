@@ -13,11 +13,21 @@
     </button>
   </div>
 
-<div class="card" style="width: 18rem;">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
-  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">name</th>
+        <th scope="col">Title</th>
+        <th scope="col">picture</th>
+        <th scope="col">intro</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of userlist">
+        <th scope="row">{{item.name}}</th>
+        <td>{{item.title}}</td>
+        <td>{{item.picture}}</td>
+        <td>{{item.intro}}</td>
+      </tr>
+    </tbody>
+  </table>

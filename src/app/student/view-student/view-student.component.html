@@ -13,11 +13,31 @@
     </button>
   </div>
 
-<div class="card" style="width: 18rem;">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
-  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Fistname</th>
+        <th scope="col">lastname</th>
+        <th scope="col">Email Address</th>
+        <th scope="col">password</th>
+        <th scope="col">Phone Number</th>
+        <th scope="col">status</th>
+        <th scope="col">starting Date</th>
+        <th scope="col">SELECT COURSE</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of userList">
+        <td>{{data.firstName}}</td>
+        <td>{{data.lastName}}</td>
+        <td>{{data.email}}</td>
+        <td>{{data.password}}</td>
+        <td>{{data.phoneNumber}}</td>
+        <td>{{data.status}}</td>
+        <td>{{data.date}}</td>
+        <td>{{data.course}}</td>
+        <td><button type="button" style="color: rgb(75, 75, 214);" routerLink="/addstudent/{{data._id}}" >Edit</button></td>
+        <td><button type="button" style="color: rgb(235, 66, 66);">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>

@@ -50,6 +50,7 @@ const routes: Routes = [
   { path: 'user-pages', loadChildren: () => import('./user-pages/user-pages.module').then(m => m.UserPagesModule) },
   { path: 'error-pages', loadChildren: () => import('./error-pages/error-pages.module').then(m => m.ErrorPagesModule) },
   {path: 'addstudent', component: AddstudentComponent},
+  {path: 'addstudent/:id', component: AddstudentComponent},
   {path: 'view-student', component: ViewStudentComponent},
   {path: 'course', component: CourseComponent},
   {path: 'addcourse', component: AddcourseComponent},
