@@ -8,7 +8,7 @@ import { ServiceService } from 'src/app/services/service.service';
   styleUrls: ['./addmentor.component.scss']
 })
 export class AddmentorComponent implements OnInit {
-  data:any=[];
+  details:any=[];
   formData:any={};
   constructor(private service:ServiceService){ 
   }
@@ -18,9 +18,11 @@ export class AddmentorComponent implements OnInit {
     }
     createMentor(data:any){
         this.service.createMentor(data).subscribe((res:any)=>{
-           this.data  = res;
-           console.log(this.data);
+           this.details  = res.user;
+           console.log(this.details,'-------------');
        })
-    }
+  }
+  
+  
 }
 

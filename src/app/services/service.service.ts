@@ -30,5 +30,14 @@ getstudentByid(id){
  getAllMentor(id=""){
     return this.data.get(this.url1 + 'api/v1/getAllMentor')
   }
+
+  createSlider(data:any){
+   return this.data.post(this.url1 +'api/v1/createSlider',data)
+  }
  
+  getSlider(id=""){
+    return this.data.get(this.url1 + 'api/v1/getSlider')
+  }
+  
+
 }
