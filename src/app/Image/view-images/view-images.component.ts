@@ -19,5 +19,8 @@ export class ViewImagesComponent implements OnInit {
       console.log(this.imagedetails,'adfsadf')
     })
   }
+  getData(id:any){
+    console.log(id,'-------');
+  }
 
 }

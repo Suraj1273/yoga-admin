@@ -22,7 +22,9 @@ import { MentorsComponent } from './Mentor/mentors/mentors.component';
 import { AddmentorComponent } from './Mentor/addmentor/addmentor.component';
 import { ImagesliderComponent } from './Image/imageslider/imageslider.component';
 import { ViewImagesComponent } from './Image/view-images/view-images.component';
-
+import { AddCategoryComponent } from './category/add-category/add-category.component';
+import { ViewCategoriesComponent } from './category/view-categories/view-categories.component';
+import { SubcategoryComponent } from './category/subcategory/subcategory.component';
 const routes: Routes = [
   // { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   // { path: 'dashboard', component: DashboardComponent},
@@ -57,8 +59,13 @@ const routes: Routes = [
   {path: 'mentors', component: MentorsComponent},
   {path: 'addmentor', component: AddmentorComponent},
   {path: 'imageslider', component:ImagesliderComponent},
-  {path: 'view-images', component:ViewImagesComponent}
-  
+  {path: 'imageslider/:id', component:ImagesliderComponent},
+  {path: 'view-images', component:ViewImagesComponent},
+  {path: 'add-category', component:AddCategoryComponent},
+  {path: 'view-categories', component:ViewCategoriesComponent},
+  {path: 'subcategory', component:SubcategoryComponent},
+  {path: 'add-category/:id', component:AddCategoryComponent},
+
 ];
 
 @NgModule({

@@ -9,6 +9,7 @@ private url = "http://34.203.244.83:3000/";
 
 private url1 = "http://localhost:3000/";
 
+
 constructor(private data: HttpClient){ 
 }
 createStudent(data:any){
@@ -37,7 +38,18 @@ getstudentByid(id){
  
   getSlider(id=""){
     return this.data.get(this.url1 + 'api/v1/getSlider')
+  } 
+
+  createCategory(data:any){
+    return this.data.post(this.url1 + 'api/v1/createcategory',data)
+  }
+
+  getAllCategory(id=""){
+     return this.data.get(this.url1+ 'api/v1/getAllCategory');
   }
   
+getCategoryByid(id){
+  return this.data.get(this.url+'api/v1/getAllCategory/'+id)
+}
 
 }
