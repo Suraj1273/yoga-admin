@@ -10,10 +10,11 @@ export class AddcourseComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.details,'-----------')
   }
-  getvalues(data:any){
-  this.details = data;
-  console.log(this.details)
-  }
+  // getvalues(data:any){
+  // this.details = data;
+  // console.log(this.details,'--------------')
+  // }
 
 }

@@ -17,9 +17,6 @@ export class AddstudentComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      // console.log(params) //log the entire params object
-      // console.log(params['id']) //log the value of id
-   //   console.log(params['id']);
       return  this.routeSub  = params['id']
     });
 
@@ -44,7 +41,6 @@ export class AddstudentComponent implements OnInit {
   getstudentByid(id) {
     this.service.getstudentByid(id).subscribe((res:any) => {
        this.userList =  res.Data;
-
        this.userdetails = res.Data;
      console.log(res,'-----------------------------');
     });

@@ -33,6 +33,9 @@ import { AddmentorComponent } from './Mentor/addmentor/addmentor.component';
 import { MentorsComponent } from './Mentor/mentors/mentors.component';
 import { ImagesliderComponent } from './Image/imageslider/imageslider.component';
 import { ViewImagesComponent } from './Image/view-images/view-images.component';
+import { AddCategoryComponent } from './category/add-category/add-category.component';
+import { ViewCategoriesComponent } from './category/view-categories/view-categories.component';
+import { SubcategoryComponent } from './category/subcategory/subcategory.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,6 +65,9 @@ import { ViewImagesComponent } from './Image/view-images/view-images.component';
     MentorsComponent,
     ImagesliderComponent,
     ViewImagesComponent,
+    AddCategoryComponent,
+    ViewCategoriesComponent,
+    SubcategoryComponent,
   ],
   imports: [
     BrowserModule,
