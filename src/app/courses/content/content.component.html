@@ -1,0 +1,71 @@
+<div class="page-header">
+  <h3 class="page-title">Manage course content</h3>
+  <br />
+  <button
+    type="button"
+    class="btn btn-outline-primary"
+    routerLink="/view-categories"
+  >
+    view Category
+  </button>
+</div>
+<div class="row">
+  <div class="col-md-50 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Create New Nav</h4>
+        <form class="forms-sample" #empForm="ngForm">
+          <div class="col-md-40 p-0">
+            
+              <div class="form-group col-lg-8 float-left">
+                  <label>Nav Title</label>
+                  <input
+                    type="text"
+                    value=""
+                    name="navtitle"
+                    placeholder="Meta title"
+                    class="form-control"
+                    [(ngModel)]="courseDetails.navtitle"
+                  />
+                </div>
+              <div class="form-group col-lg-3 float-left">
+              <label>Nav Order</label>
+              <input
+                type="number"
+                value=""
+                name="order"
+                placeholder=""
+                class="form-control"
+                [(ngModel)]="courseDetails.order"
+              />
+            </div>
+            <div class="d-grid  mx-auto">
+              <button class="btn btn-primary" type="button">Create Nav</button>
+            </div>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="filter-side col-15 px-0">
+  <table [cellPadding]="10">
+    <thead class="table-secondary">
+      <th>NAV TITLE</th>
+      <th>NAV SECTION TITLE</th>
+      <th>ORDER</th>
+      <th>STATUS</th>
+      <th>	ACTIONS</th>
+    </thead>
+    <tbody>
+      <tr class="table-light">
+        <td><a routerLink="">About 100 Hour Yoga TTC?</a></td>
+        <td>About 100 Hour Yoga TTC in Rishikesh</td>
+        <td>0</td>
+        <td>Acive</td>
+        <td><a routerLink="">Edit Nav</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

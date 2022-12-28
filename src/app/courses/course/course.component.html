@@ -1,48 +1,34 @@
-
 <div class="page-header">
-   <span>
-   <h3 class="page-title">
-   Courses
-   </h3><br>
-   <h6>Total 22 Courses(s)</h6>
-</span>
-<button type="button" class="btn btn-outline-primary" routerLink="/addcourse">Add new course</button>
+  <span>
+    <h3 class="page-title">Courses</h3>
+    <br />
+    <h6>Total 22 Courses(s)</h6>
+  </span>
+  <button type="button" class="btn btn-primary" routerLink="/addcourse">
+    Add new course
+  </button>
 </div>
 <div class="filter-side col-15 px-0">
-<table [cellPadding]="10">
-   <thead class="table-secondary" >
+  <table [cellPadding]="10">
+    <thead class="table-secondary">
       <th>title</th>
       <th>LINK SLUG</th>
       <th>STATUS</th>
       <th>ACTIONS</th>
-   </thead>
-   <tbody>
-      <tr class="table-light">
-       <td><a href="#">100 Hour Yoga Teacher Training in Rishikesh</a></td>
-       <td><a href="#">100-hours-yoga-teacher-training-in-rishikesh</a></td>
-       <td style="color: green;">Active</td>
-       <td>
-         <a href="#">Edit</a>  |  <a href="#">Content</a>  | <a href="#">Videos</a>  |  <a href="#">Fee</a>  |  <a href="#">FAQs</a>  | <a href="#">Upcoming Events</a></td>
-
+    </thead>
+    <tbody>
+      <tr class="table-light" *ngFor="let data of courseData">
+        <td><a href="#">{{data.metaTitle}}</a></td>
+        <td><a href="#">{{data.shortDesc}}</a></td>
+        <td style="color: green">{{data.isActive}}</td>
+        <td>
+          <a routerLink="/addcourse">Edit</a> |
+          <a routerLink="/content/">Content</a> | <a href="#">Videos</a> |
+          <a href="#">Fee</a> | <a href="#">FAQs</a> |
+          <a href="#">Upcoming Events</a>
+        </td>
       </tr>
-      <tr class="table-secondary">
-       <td><a href="#">200 HORAS DE FORMACIÓN DE PROFESORES DE YOGA EN RISHIKESH</a></td>
-       <td><a href="#">200-horas-de-formacioacuten-de-profesores-de-yoga-en-rishikesh</a></td>
-       <td style="color: green;">Active</td>
-       <td><a href="#">Edit  |  Content  |  Videos  |  Fee  |  FAQs  |  Upcoming Events</a></td>
-      </tr>
-      <tr class="table-light"> 
-       <td><a href="#">200 Hour Yoga Teacher Training Course Online</a></td>
-       <td><a href="#">200-hours-yoga-teacher-training-online</a></td>
-       <td style="color: green;">Active</td>
-       <td><a href="#">Edit  |  Content  |  Videos  |  Fee  |  FAQs  |  Upcoming Events</a></td>
-
-      </tr>
-      <tr class="table-secondary">
-       <td><a href="#">200 Hour Yoga Teacher Training in Bali</a></td>
-       <td><a href="#">200-hour-yoga-teacher-training-in-bali</a></td>
-       <td style="color: green;">Active</td>
-       <td><a href="#">Edit  |  Content  |  Videos  |  Fee  |  FAQs  |  Upcoming Events</a></td>
-      </tr>
-   </tbody>
- </table>
+     
+    </tbody>
+  </table>
+</div>

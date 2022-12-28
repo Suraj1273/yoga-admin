@@ -13,11 +13,9 @@ export class ViewCategoriesComponent implements OnInit {
   categoryDetails:any={};
   userid:any={};
   constructor(private http:ServiceService,private modalService: NgbModal) { }
-
   ngOnInit(): void {
     this.getAllCategory(1)
   }
-
   getAllCategory(data:any){
     this.http.getAllCategory(data).subscribe((res:any)=>{
    this.categoryData = res.user;

@@ -1,20 +1,22 @@
 import { Component, OnInit } from '@angular/core';
-
+import { ServiceService } from 'src/app/services/service.service';
 @Component({
   selector: 'app-addcourse',
   templateUrl: './addcourse.component.html',
   styleUrls: ['./addcourse.component.scss']
 })
 export class AddcourseComponent implements OnInit {
- details:any={};
-  constructor() { }
+ details:any=[];
+  constructor(private service:ServiceService) { }
 
   ngOnInit(): void {
-    console.log(this.details,'-----------')
+    this.createCourse(1);
   }
-  // getvalues(data:any){
-  // this.details = data;
-  // console.log(this.details,'--------------')
-  // }
+  createCourse(data:any){
+   this.service.createCourse(data).subscribe((res)=>{
+     this.details = res;
+     console.log(this.details,'adsfsadf')       
+     })
+   }
+  }
 
-}
