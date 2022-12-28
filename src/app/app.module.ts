@@ -36,6 +36,7 @@ import { ViewImagesComponent } from './Image/view-images/view-images.component';
 import { AddCategoryComponent } from './category/add-category/add-category.component';
 import { ViewCategoriesComponent } from './category/view-categories/view-categories.component';
 import { SubcategoryComponent } from './category/subcategory/subcategory.component';
+import { ContentComponent } from './courses/content/content.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,6 +69,7 @@ import { SubcategoryComponent } from './category/subcategory/subcategory.compone
     AddCategoryComponent,
     ViewCategoriesComponent,
     SubcategoryComponent,
+    ContentComponent,
   ],
   imports: [
     BrowserModule,

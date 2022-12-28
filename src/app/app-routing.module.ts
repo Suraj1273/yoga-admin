@@ -25,6 +25,7 @@ import { ViewImagesComponent } from './Image/view-images/view-images.component';
 import { AddCategoryComponent } from './category/add-category/add-category.component';
 import { ViewCategoriesComponent } from './category/view-categories/view-categories.component';
 import { SubcategoryComponent } from './category/subcategory/subcategory.component';
+import { ContentComponent } from './courses/content/content.component';
 const routes: Routes = [
   // { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   // { path: 'dashboard', component: DashboardComponent},
@@ -65,7 +66,8 @@ const routes: Routes = [
   {path: 'view-categories', component:ViewCategoriesComponent},
   {path: 'subcategory', component:SubcategoryComponent},
   {path: 'add-category/:id', component:AddCategoryComponent},
-
+  {path: 'content', component:ContentComponent},
+  {path: 'content/:id',component:ContentComponent}
 ];
 
 @NgModule({
