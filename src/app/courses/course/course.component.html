@@ -18,17 +18,16 @@
     </thead>
     <tbody>
       <tr class="table-light" *ngFor="let data of courseData">
-        <td><a href="#">{{data.metaTitle}}</a></td>
-        <td><a href="#">{{data.shortDesc}}</a></td>
+        <td><a href="#">{{data.coursetitle}}</a></td>
+        <td><a href="#">{{data.Content}}</a></td>
         <td style="color: green">{{data.isActive}}</td>
         <td>
-          <a routerLink="/addcourse">Edit</a> |
+          <a routerLink="/addcourse/{{data._id}}">Edit</a> |
           <a routerLink="/content/">Content</a> | <a href="#">Videos</a> |
-          <a href="#">Fee</a> | <a href="#">FAQs</a> |
-          <a href="#">Upcoming Events</a>
+          <a routerLink="">Fee</a> | <a href="#">FAQs</a> |
+          <a routerLink="">Upcoming Events</a>
         </td>
       </tr>
-     
     </tbody>
   </table>
 </div>
