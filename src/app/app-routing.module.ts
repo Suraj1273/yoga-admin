@@ -57,6 +57,7 @@ const routes: Routes = [
   {path: 'view-student', component: ViewStudentComponent},
   {path: 'course', component: CourseComponent},
   {path: 'addcourse', component: AddcourseComponent},
+  {path: 'addcourse/:id', component: AddcourseComponent},
   {path: 'mentors', component: MentorsComponent},
   {path: 'addmentor', component: AddmentorComponent},
   {path: 'imageslider', component:ImagesliderComponent},

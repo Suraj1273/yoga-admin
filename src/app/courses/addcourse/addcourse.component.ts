@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ServiceService } from 'src/app/services/service.service';
 @Component({
   selector: 'app-addcourse',
@@ -7,10 +8,18 @@ import { ServiceService } from 'src/app/services/service.service';
 })
 export class AddcourseComponent implements OnInit {
  details:any=[];
-  constructor(private service:ServiceService) { }
+ coursedetails:any={}
+  constructor(private service:ServiceService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.createCourse(1);
+    this.route.params.subscribe(params => {
+      return  this.route  = params['id']
+    });
+  
+    if(this.route){
+      console.log(this.route);
+      this.getCourseById(this.route)
+    }
   }
   createCourse(data:any){
    this.service.createCourse(data).subscribe((res)=>{
@@ -18,5 +27,11 @@ export class AddcourseComponent implements OnInit {
      console.log(this.details,'adsfsadf')       
      })
    }
+   getCourseById(id) {
+    this.service.getCourseByid(id).subscribe((res:any) => {
+      this.coursedetails =  res.Data;
+    console.log(this.details,'-----------dsafdasfdafsda------------------');
+   });
+  }
   }
 
