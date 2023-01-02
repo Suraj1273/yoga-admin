@@ -40,7 +40,6 @@ export class AddstudentComponent implements OnInit {
 }
   getstudentByid(id) {
     this.service.getstudentByid(id).subscribe((res:any) => {
-       this.userList =  res.Data;
        this.userdetails = res.Data;
      console.log(res,'-----------------------------');
     });

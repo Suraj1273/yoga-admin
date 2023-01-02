@@ -1,117 +1,127 @@
-
 <div class="page-header">
-    <h3 class="page-title">
-    Employee
-    </h3>
+  <h3 class="page-title">Employee</h3>
+</div>
 
-  </div>
-
-  <div class="row">
-    <div class="col-md-6 grid-margin stretch-card">
-      <div class="card">
-        <div class="card-body">
-          <h4 class="card-title">Add Employee</h4>
-          <!-- <p class="card-description">
+<div class="row">
+  <div class="col-md-6 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Add Employee</h4>
+        <!-- <p class="card-description">
 
           </p> -->
-          <form class="forms-sample" #empForm="ngForm" (ngSubmit)="insertUser(formData)">
+        <form
+          class="forms-sample"
+          #empForm="ngForm"
+        >
+          <div class="col-md-12 p-0">
+            <div class="form-group col-lg-6 float-left">
+              <label>Name</label>
+              <input
+                type="text"
+                value=""
+                name="name"
+                [(ngModel)]="employeDetails.name"
+                placeholder="Name"
+                class="form-control"
+              />
+            </div>
+            <div class="form-group col-lg-6 float-left">
+              <label>Email</label>
 
+              <input
+                type="email"
+                value=""
+                name="email"
+                [(ngModel)]="employeDetails.email"
+                placeholder="Email"
+                class="form-control"
+              />
+            </div>
+            <div class="form-group col-lg-6 float-left">
+              <label>Password</label>
 
-                                <div class=" col-md-12 p-0">
-                                    <div class="form-group col-lg-6 float-left">
-                                        <label>Name</label>
-                                        <input type="text" value="" name="name" [(ngModel)]="formData.name"  placeholder="Name" class="form-control" />
-                                    </div>
-                                    <div class="form-group col-lg-6 float-left">
-                                        <label>Email</label>
+              <input
+                type="password"
+                value=""
+                name="password"
+                [(ngModel)]="employeDetails.password"
+                placeholder="password"
+                class="form-control"
+              />
+            </div>
+            <div class="form-group col-lg-6 float-left">
+              <label>Phone Number</label>
 
-                                        <input type="email" value="" name="email" [(ngModel)]="formData.email"  placeholder="Email" class="form-control" />
-                                    </div>
-                                    <div class="form-group col-lg-6 float-left">
-                                        <label>Password</label>
+              <input
+                type="text"
+                value=""
+                name="phoneNumber"
+                [(ngModel)]="employeDetails.phoneNumber"
+                placeholder="Phone Number"
+                class="form-control"
+              />
+            </div>
+            <div class="form-group col-lg-6 float-left">
+              <label>Status</label>
+              <select
+                class="form-control"
+                name="status"
+                [(ngModel)]="employeDetails.status"
+              >
+                <option value="undefined">Select</option>
+                <option value="1">Active</option>
+                <option value="0">Inactive</option>
+              </select>
+            </div>
+            <div class="form-group col-lg-6 float-left">
+              <label>Permission</label>
+              <select
+                class="form-control"
+                name="Permission"
+                [(ngModel)]="employeDetails.Permission"
+              >
+                <option value="undefined">Select</option>
+                <option value="1">Admin</option>
+                <option value="2">Manager</option>
+                <option value="4">Employee</option>
+              </select>
+            </div>
 
-                                        <input type="password" value="" name="password" [(ngModel)]="formData.password"  placeholder="password" class="form-control" />
-                                    </div>
-                                    <div class="form-group col-lg-6 float-left">
-                                        <label>Phone Number</label>
-
-                                        <input type="text" value="" name="phoneNumber" [(ngModel)]="formData.phoneNumber" placeholder="Phone Number" class="form-control" />
-                                    </div>
-                                    <div class="form-group col-lg-6 float-left">
-                                        <label>Status</label>
-                                        <select class="form-control" name="status" [(ngModel)]="formData.isActive">
-                                          <option value="undefined">Select</option>
-                                            <option value="1">Active</option>
-                                            <option value="0">Inactive</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group col-lg-6 float-left">
-                                        <label>Permission</label>
-                                        <select class="form-control" name="type" [(ngModel)]="formData.type" (change)="hideCheck($event)">
-                                          <option value="undefined">Select</option>
-                                            <option value="1">Admin</option>
-                                            <option value="2">Manager</option>
-                                            <option value="4">Employee</option>
-                                        </select>
-                                    </div>
-
-                                    <div class="form-group col-lg-6 float-left" *ngIf="mangCounter">
-                                        <label>Assign Clients (if manager)</label>
-                                        <!-- <input type="text" value="" name="assginedTo" [(ngModel)]="formData.assginedTo"  placeholder="Search Client" class="form-control" /> -->
-                                        <select class="form-control" name="client" [(ngModel)]="formData.assginedTo">
-                                          <option value="undefined">Select</option>
-                                            <option *ngFor="let client of clientList" value="{{client._id}}">{{client.name}}</option>
-                                        </select>
-                                        <!-- <span class="badge badg-primary">Client Name</span> -->
-                                    </div>
-                                    <div class="form-group col-lg-12 text-center float-left">
-                                        <button mat-raised-button type="submit" class="btn btn-info btn-sm mx-2 filter-toggle"
-                                        style="padding:0.45rem 0.25rem" data-toggle="collapse" data-target="#collapseExample"
-                                        aria-expanded="false" aria-controls="collapseExample">
-                                        Submit
-                                    </button>
-                                    </div>
-
-                                </div>
-
-                                <!-- <span class="align-self-center">0</span> -->
-                               </form>
-
-
+            <div class="form-group col-lg-6 float-left">
+              <button class="btn btn-primary" (click)="createEmploye(employeDetails)">submit</button>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
-</div>
-</div>
-<!-- col-md-6 -->
+  </div>
 
-<div class="col-md-6 grid-margin stretch-card">
+
+  <div class="col-md-20 grid-margin stretch-card">
     <div class="card">
       <div class="card-body">
         <h4 class="card-title">Employee</h4>
         <div class="table-responsive">
-            <table class="table">
-                <tr>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Phone Number</th>
-                    <th>Status</th>
-                    <th>Permission</th>
-                    <th>Action</th>
-
-                </tr>
-                <tr *ngFor="let user of userList">
-                    <td>{{user.name}}</td>
-                    <td>{{user.email}}</td>
-                    <td>{{user.phoneNumber}}</td>
-                    <td>{{user.isActive ? 'Active' : 'Inactive'}}</td>
-                    <td>{{user.type == 1 ? 'Admin': user.type == 2 ? 'Manager' : user.type == 4 ? 'Employee' : 'Invalid Type'}}</td>
-                    <td>
-                      <a class="btn btn-primary btn-sm" [routerLink]="['/employee',user._id]">edit</a>
-                      <a class="btn btn-danger btn-sm" href="javascript:void(0)" (click)="deleteUser(user._id)">delete</a>
-                    </td>
-                </tr>
-            </table>
-
+          <table class="table">
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone Number</th>
+              <th>Status</th>
+              <th>Permission</th>
+            </tr>
+            <tr *ngFor="let data of getEmployeDetails">
+                <td>{{data.name}}</td>
+                <td>{{data.email}}</td>
+                <td>{{data.password}}</td>
+                <td>{{data.status}}</td>
+                <td>{{data.Permission}}</td>
+                <td><button class="btn btn-primary" routerLink="/employee/{{data._id}}">Edit</button></td>
+            </tr>
+          </table>
         </div>
-        </div>
-</div>
+      </div>
+    </div>
+  </div>
 </div>

@@ -10,53 +10,108 @@
   </button>
 </div>
 <div class="row">
-  <div class="col-md-50 grid-margin stretch-card">
+  <div class="col-md-16 grid-margin stretch-card">
     <div class="card">
       <div class="card-body">
-        <h4 class="card-title">Create New Nav</h4>
-        <form class="forms-sample" #empForm="ngForm">
-          <div class="col-md-40 p-0">
-            
-              <div class="form-group col-lg-8 float-left">
-                  <label>Nav Title</label>
-                  <input
-                    type="text"
-                    value=""
-                    name="navtitle"
-                    placeholder="Meta title"
-                    class="form-control"
-                    [(ngModel)]="courseDetails.navtitle"
-                  />
-                </div>
-              <div class="form-group col-lg-3 float-left">
-              <label>Nav Order</label>
+        <form  
+          class="forms-sample"
+          #empForm="ngForm"
+        >
+          <div class="col-md-50 p-0">
+            <div class="form-group col-lg-6 float-left">
+              <label>Nav Title</label>
+              <input
+                type="text"
+                value=""
+                class="form-control"
+                name="navTitle"
+                placeholder="nav title"
+                class="form-control"
+                [(ngModel)]="contentData.navTitle"
+              />
+            </div>
+
+            <div class="form-group col-lg-6 float-left">
+              <label>Nav order</label>
               <input
                 type="number"
                 value=""
-                name="order"
-                placeholder="number"
                 class="form-control"
-                [(ngModel)]="courseDetails.order"
+                name="navorder"
+                placeholder="Nav order"
+                class="form-control"
+                [(ngModel)]="contentData.navorder"
               />
             </div>
-            <div class="d-grid  mx-auto">
-              <button class="btn btn-primary" type="button">Create Nav</button>
+
+            <div class="form-group col-lg-6 float-left">
+              <label>Nav Status</label>
+              <input
+                type="text"
+                class="form-control"
+                name="email"
+                [(ngModel)]="contentData.email"
+                placeholder="Nav Status"
+                class="form-control"               
+              />
             </div>
+            <div class="form-group col-lg-6 float-left">
+              <label>Nav Section Title</label>
+              <input
+                type="text"
+                value=""
+                name="sectiontitle"
+                placeholder="nav section Title"
+                class="form-control"
+                [(ngModel)]="contentData.sectiontitle"
+              />
+             
             </div>
+            <div class="">
+              <label>Nav title</label>
+             <textarea name="" id="" cols="130" rows="10"  [(ngModel)]="contentData.navtextarea" name="navtextarea"></textarea>
+          
+            </div>
+            <div class="form-group col-lg-12 float-left">
+              <label>Nav Image</label>
+              <input
+                type="file"
+                value=""
+                name="navimage"
+                [(ngModel)]="contentData.navimage" 
+              />
+            </div>
+            <div class="form-group  float-left">
+              <button class="btn btn-primary">cancel</button>
+              <button
+              mat-raised-button
+              type="submit"
+              class="btn btn-primary"
+              style="padding: 0.45rem 0.25rem"
+              data-toggle="collapse"
+              data-target="#collapseExample"
+              aria-expanded="false"
+              aria-controls="collapseExample"
+            >
+              Save Student information
+            </button>
+            </div>
+           
+          </div>
         </form>
       </div>
     </div>
   </div>
 </div>
 
-<div class="filter-side col-15 px-0">
+<!-- <div class="filter-side col-15 px-0">
   <table [cellPadding]="10">
     <thead class="table-secondary">
       <th>NAV TITLE</th>
       <th>NAV SECTION TITLE</th>
       <th>ORDER</th>
       <th>STATUS</th>
-      <th>	ACTIONS</th>
+      <th>ACTIONS</th>
     </thead>
     <tbody>
       <tr class="table-light">
@@ -68,4 +123,4 @@
       </tr>
     </tbody>
   </table>
-</div>
+</div> -->

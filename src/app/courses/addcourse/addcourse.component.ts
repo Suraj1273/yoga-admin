@@ -8,7 +8,7 @@ import { ServiceService } from 'src/app/services/service.service';
 })
 export class AddcourseComponent implements OnInit {
  details:any=[];
- coursedetails:any={}
+ coursedetails:any={};
   constructor(private service:ServiceService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -27,11 +27,10 @@ export class AddcourseComponent implements OnInit {
      console.log(this.details,'adsfsadf')       
      })
    }
-   getCourseById(id) {
+   getCourseById(id:any) {
     this.service.getCourseByid(id).subscribe((res:any) => {
-      this.coursedetails =  res.Data;
-    console.log(this.details,'-----------dsafdasfdafsda------------------');
-   });
+      this.coursedetails =  res.Data;   
+    });
   }
   }
 

@@ -80,7 +80,6 @@ import { ContentComponent } from './courses/content/content.component';
     ReactiveFormsModule,
     ChartsModule,
     HttpClientModule,
-
   ],
   providers: [ThemeService],
   bootstrap: [AppComponent]
