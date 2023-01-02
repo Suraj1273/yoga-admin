@@ -60,4 +60,17 @@ getCourseByid(id) {
   return this.data.get(this.url1 + "api/v1/getCourseById/" + id);
 }
 
+createEmploye(data:any){
+  return this.data.post(this.url1 + "api/v1/createEmploye",data);
+}
+
+getEmploye(id=""){
+ return this.data.get(this.url1 +'api/v1/getEmploye');
+}
+
+getEmployeById(id){
+  return this.data.get(this.url1 + "api/v1/getEmployeById/" + id)
+}
+
+
 }

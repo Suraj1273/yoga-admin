@@ -33,7 +33,7 @@ const routes: Routes = [
   // { path: 'client/:id', component: ClientComponent },
   { path: '', redirectTo: '/course', pathMatch: 'full' },
   { path: 'employee', component: EmployeeComponent },
-  { path: 'employee/:id', component: EmployeeComponent },
+  { path: 'employee/:id', component: EmployeeComponent},
   // { path: 'team', component: TeamComponent },
   // { path: 'team/:id', component: TeamComponent },
   // { path: 'profile', component: ProfileComponent },
@@ -68,7 +68,7 @@ const routes: Routes = [
   {path: 'subcategory', component:SubcategoryComponent},
   {path: 'add-category/:id', component:AddCategoryComponent},
   {path: 'content', component:ContentComponent},
-  {path: 'content/:id',component:ContentComponent}
+  {path: 'content/:id',component:ContentComponent},
 ];
 
 @NgModule({
