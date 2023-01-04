@@ -10,17 +10,17 @@
     <div class="card">
       <div class="card-body">
         <h4 class="card-title">New Course Information</h4>
-        <form class="forms-sample">
+        <form class="forms-sample" [formGroup]="empForm">
                               <div class=" col-md-50 p-0">
                                   <div class="form-group col-lg-6 float-left">
                                       <label>Course Title</label>
-                                      <input type="text" value="" name="coursetitle" placeholder="course title" class="form-control"  [(ngModel)]="coursedetails.coursetitle">
+                                      <input type="text" value="" name="coursetitle" placeholder="course title" class="form-control"  [(ngModel)]="coursedetails.coursetitle" formControlName="coursetitle">
                                   </div>
                               
                                   <div class="form-group col-lg-3 float-left">
                                     <label>Status</label>
-                                    <select class="form-control" name="status"  [(ngModel)]="coursedetails.status">
-                                      <option value="undefined">Select</option>
+                                    <select class="form-control" name="status"  [(ngModel)]="coursedetails.status" formControlName="status">
+                                      <option  selected>Select</option>
                                         <option value="1">Active</option>
                                         <option value="0">Inactive</option>
                                     </select>
@@ -29,7 +29,7 @@
                                   <div class="form-group col-lg-36 float-left">
                                     <label>Course Short Description
                                     </label>
-                                       <textarea name="textarea" cols="200" rows="5" class="form-control" name="courseDesc" placeholder="course short description 200 char max."  [(ngModel)]="coursedetails.courseDesc"></textarea>
+                                       <textarea name="textarea" cols="200" rows="5" class="form-control" name="courseDesc" placeholder="course short description 200 char max."  [(ngModel)]="coursedetails.courseDesc" formControlName="courseDesc"></textarea>
                                   </div>
 
                                   <div class="form-group col-lg-4 float-left">
@@ -37,20 +37,20 @@
                                     <span name="coursevideosource">
                                     <h4>course intro video source</h4>
                                     <label for="coursevideo">Youtube</label>
-                                    <input id="coursevideo" type="radio" name="courseintro" value="Youtube"  [(ngModel)]="coursedetails.courseintro"><br>
+                                    <input id="coursevideo" type="radio" name="courseintro" value="Youtube"  [(ngModel)]="coursedetails.courseintro" formControlName="courseintro"><br>
 
                                     <label for="Wista">Wista</label>
-                                    <input id="Wista" type="radio" name="courseintro" value="Wista"  [(ngModel)]="coursedetails.courseintro">
+                                    <input id="Wista" type="radio" name="courseintro" value="Wista"  [(ngModel)]="coursedetails.courseintro" formControlName="courseintro">
                                   </span> 
                                </div>
                                <hr>
                                <div class="form-group col-lg-3 float-left">
                                 <label>Course intro video Id</label>
-                                <input type="text" value="" name="courseintrovideoId" placeholder="Course intro video Id" class="form-control" [(ngModel)]="coursedetails.courseintrovideoId"/>
+                                <input type="text" value="" name="courseintrovideoId" placeholder="Course intro video Id" class="form-control" [(ngModel)]="coursedetails.courseintrovideoId" formControlName="courseintrovideoId"/>
                             </div>
 
                             <div class="form-group col-lg-5  float-left">
-                              <select class="form-select" aria-label="Default select example" [(ngModel)]="coursedetails.selectoption" name="selectoption">
+                              <select class="form-select" aria-label="Default select example" [(ngModel)]="coursedetails.selectoption" name="selectoption" formControlName="selectoption">
                                 <option selected>Open this select menu</option>
                                 <option value="1">One</option>
                                 <option value="2">Two</option>
@@ -60,24 +60,28 @@
                                             
                                   <div class="form-group col-lg-6 float-left">
                                     <label>Course SEO Title</label>
-                                    <input type="text" name="metaTitle" placeholder="Course SEO Title" class="form-control" [(ngModel)]="coursedetails.metaTitle"/>
+                                    <input type="text" name="metaTitle" placeholder="Course SEO Title" class="form-control" [(ngModel)]="coursedetails.metaTitle" formControlName="metaTitle"/>
                                   </div>
 
                                   <div class="form-group col-lg-6 float-left">
                                     <label>Course SEO Keywords</label>
-                                    <input type="text" name="metaKeyword" placeholder="Course SEO Keywords" class="form-control" [(ngModel)]="coursedetails.metaKeyword"/>
+                                    <input type="text" name="metaKeyword" placeholder="Course SEO Keywords" class="form-control" [(ngModel)]="coursedetails.metaKeyword" formControlName="metaKeyword"/>
                                   </div>
                                   <div class="form-group col-lg-16 float-left">
                                     <label>Course SEO Description</label>
-                                    <input type="text" size='130' name="metaDescription" placeholder="Course SEO Description" class="form-control"  [(ngModel)]="coursedetails.metaDescription"/>
+                                    <input type="text" size='130' name="metaDescription" placeholder="Course SEO Description" class="form-control"  [(ngModel)]="coursedetails.metaDescription" formControlName="metaDescription"/>
+                                  </div>
+                                  <div class="form-group col-lg-16 float-left">
+                                    <label>Slug</label>
+                                    <input type="text" size='130' name="slug" placeholder="Slug" class="form-control"  [(ngModel)]="coursedetails.slug" formControlName="slug"/>
                                   </div>
                               </div>                               
                               <div>
                                 <h3>
-                                cancel
+                                   <button class="btn btn-primary">cancel</button> 
                                 </h3>
-                             <button type="submit" class="btn btn-primary" (click)="createCourse(coursedetails)">Save course Information</button>
-                            </div>        
+                             <button type="submit" class="btn btn-primary" (click)="createCourse(coursedetails)" [disabled]="empForm.invalid">Save course Information</button>
+                            </div>               
                              </form>
   </div>
 </div>

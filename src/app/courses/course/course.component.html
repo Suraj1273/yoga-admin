@@ -19,7 +19,7 @@
     <tbody>
       <tr class="table-light" *ngFor="let data of courseData">
         <td><a href="#">{{data.coursetitle}}</a></td>
-        <td><a href="#">{{data.Content}}</a></td>
+        <td><a routerLink="#">{{data.slug}}</a></td>
         <td style="color: green">{{data.isActive}}</td>
         <td>
           <a routerLink="/addcourse/{{data._id}}">Edit</a> |
