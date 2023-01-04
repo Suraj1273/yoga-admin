@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from 'src/app/services/service.service';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-add-category',
   templateUrl: './add-category.component.html',
@@ -21,20 +21,23 @@ export class AddCategoryComponent implements OnInit {
     });
 
     if(this.routeSub){
-      console.log(this.routeSub);
-      this.getCourseById(this.routeSub)
+      console.log(this.routeSub,'suraj');
+      this.getCategoryById(this.routeSub)
     }
-    console.log(this.userdetails,'sadfasdfasf');
   }
 
-  getCourseById(routeSub: any) {
-    throw new Error('Method not implemented.');
-  }
  createCategory(data:any){
-    this.http.createCategory(data).subscribe((res)=>{
-      this.response = res;
-      console.log(this.response,'---------')
+    this.http.createCategory(data).subscribe((res:any)=>{
+      this.categoryDetails = res.Data;
+      console.log(res,'---------')
     })
  }
+
+ getCategoryById(id) {
+    this.http.getCategoryById(id).subscribe((res:any) => {
+       this.categoryDetails = res.Data;
+     console.log(res.Data,'-----------------------------');
+    });
+  }
+ }
  
-}

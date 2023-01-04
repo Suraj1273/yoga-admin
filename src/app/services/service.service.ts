@@ -46,8 +46,8 @@ export class ServiceService {
     return this.data.get(this.url1 + "api/v1/getAllCategory");
   }
 
-  getCategoryByid(id) {
-    return this.data.get(this.url + "api/v1/getAllCategory/" + id);
+  getCategoryById(id) {
+    return this.data.get(this.url1 + "api/v1/getCategoryById/" + id);
   }
 
   createCourse(data: any) {
@@ -59,7 +59,6 @@ export class ServiceService {
 getCourseByid(id) {
   return this.data.get(this.url1 + "api/v1/getCourseById/" + id);
 }
-
 createEmploye(data:any){
   return this.data.post(this.url1 + "api/v1/createEmploye",data);
 }

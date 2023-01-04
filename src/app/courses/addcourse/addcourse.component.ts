@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ServiceService } from 'src/app/services/service.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-addcourse',
   templateUrl: './addcourse.component.html',
@@ -8,8 +9,21 @@ import { ServiceService } from 'src/app/services/service.service';
 })
 export class AddcourseComponent implements OnInit {
  details:any=[];
+ empForm: FormGroup;
  coursedetails:any={};
-  constructor(private service:ServiceService, private route: ActivatedRoute) { }
+  constructor(private service:ServiceService, private route: ActivatedRoute) {
+  this.empForm = new FormGroup({
+    coursetitle: new FormControl('',[Validators.required]), 
+    status: new FormControl('',[Validators.required]),
+    courseDesc: new FormControl('',[Validators.required]),
+    courseintro: new FormControl('',[Validators.required]),
+    courseintrovideoId: new FormControl('',[Validators.required]),
+    selectoption: new FormControl('',[Validators.required]),
+    metaTitle: new FormControl('',[Validators.required]),
+    metaKeyword: new FormControl('',[Validators.required]),
+    metaDescription: new FormControl('',[Validators.required]),
+  })
+}
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -29,7 +43,7 @@ export class AddcourseComponent implements OnInit {
    }
    getCourseById(id:any) {
     this.service.getCourseByid(id).subscribe((res:any) => {
-      this.coursedetails =  res.Data;   
+      this.coursedetails =  res.data;   
     });
   }
   }

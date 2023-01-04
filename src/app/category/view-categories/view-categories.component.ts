@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from 'src/app/services/service.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-view-categories',
   templateUrl: './view-categories.component.html',
@@ -12,17 +13,20 @@ export class ViewCategoriesComponent implements OnInit {
   subDetails:any = {};
   categoryDetails:any={};
   userid:any={};
-  constructor(private http:ServiceService,private modalService: NgbModal) { }
+  routeSub: any;
+  constructor(private http:ServiceService,private modalService: NgbModal, private route: ActivatedRoute) {
+ 
+   }
   ngOnInit(): void {
-    this.getAllCategory(1)
-  }
+    this.getAllCategory(1);
+}
   getAllCategory(data:any){
     this.http.getAllCategory(data).subscribe((res:any)=>{
    this.categoryData = res.user;
    console.log(this.categoryData,'-----------');
-   console.log(this.subDetails,'adfasdf')
     })
   }
+  
   openMediumModal( mediumModalContent ) {
     this.modalService.open( mediumModalContent );
   }
@@ -37,10 +41,5 @@ export class ViewCategoriesComponent implements OnInit {
       // console.log(this.response,'---------')
     })
  }
- getcategoryByid(id) {
-  this.http.getCategoryByid(id).subscribe((res:any) => {
-     this.userid =  res.Data;
-   console.log(res,'-----------------------------');
-  });
-}
+
 }
