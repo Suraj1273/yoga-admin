@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from 'src/app/services/service.service';
-import { Router } from '@angular/router';
+import { Router,ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-addmentor',
   templateUrl: './addmentor.component.html',
@@ -8,10 +8,23 @@ import { Router } from '@angular/router';
 })
 export class AddmentorComponent implements OnInit {
   formData:any={};
-  constructor(private service:ServiceService,private router:Router) {
+  url: any;
+  mentorId:any;
+  pictureFetch:any;
+  thumbFetch:any
+  constructor(private service:ServiceService,private router:Router,private acroute:ActivatedRoute) {
   }
 
   ngOnInit(): void {
+
+    this.url = this.service.imageUrl;
+    this.acroute.params.subscribe(params => {
+      return  this.mentorId  = params['id']
+    });
+
+    if(this.mentorId){
+      this.getMentorById(this.mentorId);
+    }
 
     }
 
@@ -42,6 +55,9 @@ export class AddmentorComponent implements OnInit {
        });
     }
     createMentor(data:any){
+      if(!this.mentorId){
+        data.isActive = true;
+      }
         this.service.createMentor(data).subscribe((res:any)=>{
     if(res.status=="ok"){
     alert(res.msg);
@@ -49,8 +65,17 @@ export class AddmentorComponent implements OnInit {
    }
    else{
     alert(res.msg);
-   }
+    }
        })
+  }
+
+  getMentorById(id:any){
+    this.service.getMentorById(id).subscribe((res:any)=>{
+    console.log(res);
+   this.formData = res.data
+   this.pictureFetch = res.data.picture;
+   this.thumbFetch = res.data.thumb;
+    });
   }
 
 

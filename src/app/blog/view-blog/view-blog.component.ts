@@ -1,37 +1,36 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from 'src/app/services/service.service';
+
+
 @Component({
-  selector: 'app-mentors',
-  templateUrl: './mentors.component.html',
-  styleUrls: ['./mentors.component.scss']
+  selector: 'app-view-blog',
+  templateUrl: './view-blog.component.html',
+  styleUrls: ['./view-blog.component.scss']
 })
-export class MentorsComponent implements OnInit {
-  userlist:any;
+export class ViewBlogComponent implements OnInit {
+
+  blogList:any;
   imageUrl:any;
   constructor(private service:ServiceService) {}
 
-  getmentorsdetails:any = [];
-
   ngOnInit(): void {
     this.imageUrl = this.service.imageUrl;
-    this.getAllMentor();
+    this.getAllBlog();
   }
 
-  getAllMentor(){
-    this.service.getAllMentor().subscribe((res:any)=>{
-      console.log(res,'fgh');
-
-      this.userlist =  res.user;
+  getAllBlog(){
+    this.service.getAllBlog().subscribe((res:any)=>{
+      this.blogList =  res.data;
       // console.warn(this.userlist);
     })
   }
 
-  deleteMentor(id:any){
+  deleteBlog(id:any){
    let val={
     "_id":id,
     "isActive":false
    };
-   this.service.createMentor(val).subscribe((res:any)=>{
+   this.service.createBlog(val).subscribe((res:any)=>{
     if(res.status == "ok"){
       alert(res.msg);
       location.reload();
@@ -42,6 +41,4 @@ export class MentorsComponent implements OnInit {
    });
 
   }
-
-
 }

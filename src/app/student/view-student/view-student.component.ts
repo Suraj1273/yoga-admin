@@ -19,7 +19,6 @@ export class ViewStudentComponent implements OnInit {
   getstudent(data: any) {
     this.service.getstudent(data).subscribe((res:any) => {
        this.userList =  res.Data;
-     console.log(res,'-----------------------------');
     });
   }
 

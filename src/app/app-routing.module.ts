@@ -26,6 +26,8 @@ import { AddCategoryComponent } from './category/add-category/add-category.compo
 import { ViewCategoriesComponent } from './category/view-categories/view-categories.component';
 import { SubcategoryComponent } from './category/subcategory/subcategory.component';
 import { ContentComponent } from './courses/content/content.component';
+import { BlogComponent } from './blog/blog.component';
+import { ViewBlogComponent } from './blog/view-blog/view-blog.component';
 const routes: Routes = [
   // { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   // { path: 'dashboard', component: DashboardComponent},
@@ -60,6 +62,7 @@ const routes: Routes = [
   {path: 'addcourse/:id', component: AddcourseComponent},
   {path: 'mentors', component: MentorsComponent},
   {path: 'addmentor', component: AddmentorComponent},
+  {path: 'addmentor/:id', component: AddmentorComponent},
   {path: 'imageslider', component:ImagesliderComponent},
   {path: 'imageslider/:id', component:ImagesliderComponent},
   {path: 'view-images', component:ViewImagesComponent},
@@ -69,6 +72,9 @@ const routes: Routes = [
   {path: 'add-category/:id', component:AddCategoryComponent},
   {path: 'content', component:ContentComponent},
   {path: 'content/:id',component:ContentComponent},
+  {path:'blog',component:BlogComponent},
+  {path:'blog/:id',component:BlogComponent},
+  {path:'view-blog',component:ViewBlogComponent},
 ];
 
 @NgModule({

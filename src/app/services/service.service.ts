@@ -30,6 +30,9 @@ export class ServiceService {
   getAllMentor(id = "") {
     return this.data.get(this.url + "api/v1/getAllMentor");
   }
+  getMentorById(id:any) {
+    return this.data.get(this.url + "api/v1/getMentorById/"+id);
+  }
 
   createSlider(data: any) {
     return this.data.post(this.url + "api/v1/createSlider", data);
@@ -37,6 +40,9 @@ export class ServiceService {
 
   getSlider(id = "") {
     return this.data.get(this.url + "api/v1/getSlider");
+  }
+  getSliderById(id:any) {
+    return this.data.get(this.url + "api/v1/getimagesliderById/"+id);
   }
 
   createCategory(data: any) {
@@ -75,6 +81,16 @@ getEmployeById(id){
 uploadImage(dam:any){
   console.log(dam);
 return this.data.post(this.url+"api/v1/uploadImage",dam);
+}
+
+createBlog(data: any) {
+  return this.data.post(this.url + "api/v1/createBlog", data);
+}
+getAllBlog(id=""){
+  return this.data.get(this.url + 'api/v1/getAllBlog');
+}
+getBlogById(id){
+  return this.data.get(this.url + "api/v1/getBlogById/" + id)
 }
 
 

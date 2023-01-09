@@ -51,8 +51,8 @@
 @import "./assets/scss/components/bootstrap-progress";
 @import "./assets/scss/components/bootstrap-alerts";
 @import "./assets/scss/components/tabs";
-@import "./assets/scss/components/dropdowns"; 
-@import "./assets/scss/components/date-picker"; 
+@import "./assets/scss/components/dropdowns";
+@import "./assets/scss/components/date-picker";
 @import "./assets/scss/components/pagination";
 @import "./assets/scss/components/portfolio";
 @import "./assets/scss/components/todo-list";
@@ -61,15 +61,21 @@
 /* === Layout === */
 @import "./assets/scss/layout";
 
+.image-show{
+   border-radius: 0px !important;
+   width:200px !important;
+   height:auto !important;
+}
+
 
 .navbar .navbar-menu-wrapper {
 
     padding-left: 0px !important;
-  
+
     width: calc(100% - 170px) !important;
     height: 50px !important;
   }
-  
+
   .navbar .navbar-brand-wrapper{
     width: 170px !important;
     height: 50px !important;
@@ -77,12 +83,12 @@
   .page-body-wrapper {
     min-height: calc(100vh - 50px) !important;
     padding-top: 50px !important;
-   
+
   }
   .sidebar{
     min-height: calc(100vh - 50px);
       background: #ffffff;
-     
+
       width: 170px;
   }
   .main-panel {
@@ -92,15 +98,15 @@
     display: flex;
     flex-direction: column;
   }
-  
+
   .card{
-     
+
   }
   .d-grid-1{
-    
+
   }
   .dashboard-tbl{
-  
+
   }
   .dashboard-tbl h5{
     font-size: 1rem;
@@ -111,7 +117,7 @@
   .p-0, .p-none{
     padding: 0 !important;
   }
-  
+
   [class^='col-md']{
     float: left;
   }
@@ -159,4 +165,3 @@
       font-size: 12px;
       color: #838080;
   }
-  

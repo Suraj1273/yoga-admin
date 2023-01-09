@@ -37,6 +37,9 @@ import { AddCategoryComponent } from './category/add-category/add-category.compo
 import { ViewCategoriesComponent } from './category/view-categories/view-categories.component';
 import { SubcategoryComponent } from './category/subcategory/subcategory.component';
 import { ContentComponent } from './courses/content/content.component';
+import { EditorModule } from '@tinymce/tinymce-angular';
+import { BlogComponent } from './blog/blog.component';
+import { ViewBlogComponent } from './blog/view-blog/view-blog.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -70,6 +73,8 @@ import { ContentComponent } from './courses/content/content.component';
     ViewCategoriesComponent,
     SubcategoryComponent,
     ContentComponent,
+    BlogComponent,
+    ViewBlogComponent,
   ],
   imports: [
     BrowserModule,
@@ -80,6 +85,7 @@ import { ContentComponent } from './courses/content/content.component';
     ReactiveFormsModule,
     ChartsModule,
     HttpClientModule,
+    EditorModule
   ],
   providers: [ThemeService],
   bootstrap: [AppComponent]

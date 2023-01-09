@@ -6,21 +6,34 @@ import { ServiceService } from 'src/app/services/service.service';
   styleUrls: ['./view-images.component.scss']
 })
 export class ViewImagesComponent implements OnInit {
-  imagedetails:any = [];
+  imagedetails:any;
+  url:any;
   constructor(private service:ServiceService) { }
-  
+
   ngOnInit(): void {
-    this.getSlider(1)
+    this.url = this.service.imageUrl;
+    this.getSlider();
   }
 
-  getSlider(data:any){
-    this.service.getSlider(data).subscribe((res:any)=>{
-      this.imagedetails =  res.user;
-      console.log(this.imagedetails,'adfsadf')
+  getSlider(){
+    this.service.getSlider().subscribe((res:any)=>{
+      this.imagedetails =  res.data;
     })
   }
-  getData(id:any){
-    console.log(id,'-------');
+  deleteSlider(id:any){
+    let val = {
+      "_id":id,
+      "isActive":false
+    }
+    this.service.createSlider(val).subscribe((res:any)=>{
+      if(res.status == "ok"){
+        alert(res.msg);
+        location.reload();
+      }
+      else{
+        alert(res.msg);
+      }
+    })
   }
 
 }

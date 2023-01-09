@@ -30,18 +30,16 @@ export class AddstudentComponent implements OnInit {
        this.studentdetails = data;
        console.log(this.studentdetails);
     }
-    
+
   createStudent(data:any){
     this.userdetails.isActive = true;
    this.service.createStudent(this.userdetails).subscribe((res:any)=>{
      this.userList = res;
-     console.log(this.userList);
   })
 }
   getstudentByid(id) {
     this.service.getstudentByid(id).subscribe((res:any) => {
        this.userdetails = res.Data;
-     console.log(res,'-----------------------------');
     });
   }
 
