@@ -1,5 +1,3 @@
-<p>addmentor works!</p>
-
 <div class="page-header">
   <span>
     <h3 class="page-title">Mentors</h3>
@@ -19,6 +17,7 @@
       <form
         class="forms-sample"
         #empForm="ngForm"
+        enctype="multipart/form-data"
       >
         <div class="col-md-50 p-0">
           <div class="form-group col-lg-6 float-left">
@@ -28,7 +27,7 @@
               value=""
               class="form-control"
               name="mentorsname"
-              [(ngModel)]="formData.mentorsname"
+              [(ngModel)]="formData.name"
               placeholder="Mentor's Full Name"
               class="form-control"
               size="70"
@@ -43,7 +42,7 @@
               value=""
               class="form-control"
               name="mentorstitle"
-              [(ngModel)]="formData.mentorstitle"
+              [(ngModel)]="formData.title"
               placeholder="Mentors Title"
               class="form-control"
             />
@@ -51,13 +50,13 @@
 
           <div class="form-group col-lg-6 float-left">
            <p>Mentor's Photo (Thumbnail) (Upload a square image. Best thumbnail size 480px X 480px)</p>
-           <input type="file" name="picture" [(ngModel)]="formData.picture">
+           <input type="file" name="thumb" (change)="selectThumb($event)">
           </div>
 
-          
+
           <div class="form-group col-lg-6 float-left">
-            <p>Mentor's Photo (Full size) (Upload a wallpaper size image. Image size must be less than 2MB)</p>
-            <input type="file" name="picture2" [(ngModel)]="formData.picture2">
+            <p>Mentor's Photo (Full size) (Upload a wallpaper size image. Image size must be less than 1MB)</p>
+            <input type="file" name="picture" (change)="selectPicture($event)">
            </div>
 
            <div class="form-group col-lg-12 float-left">

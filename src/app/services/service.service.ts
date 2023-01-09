@@ -5,9 +5,10 @@ import { HttpClient } from "@angular/common/http";
   providedIn: "root",
 })
 export class ServiceService {
-  private url = "http://34.203.244.83:3000/";
+  // private url = "http://34.203.244.83:3000/";
 
-  private url1 = "http://localhost:3000/";
+  private url = "http://localhost:3000/";
+  public imageUrl = "http://localhost:3000/public/images/";
 
   constructor(private data: HttpClient) {}
   createStudent(data: any) {
@@ -23,52 +24,57 @@ export class ServiceService {
   }
 
   createMentor(data: any) {
-    return this.data.post(this.url1 + "api/v1/createMentor", data);
+    return this.data.post(this.url + "api/v1/createMentor", data);
   }
 
   getAllMentor(id = "") {
-    return this.data.get(this.url1 + "api/v1/getAllMentor");
+    return this.data.get(this.url + "api/v1/getAllMentor");
   }
 
   createSlider(data: any) {
-    return this.data.post(this.url1 + "api/v1/createSlider", data);
+    return this.data.post(this.url + "api/v1/createSlider", data);
   }
 
   getSlider(id = "") {
-    return this.data.get(this.url1 + "api/v1/getSlider");
+    return this.data.get(this.url + "api/v1/getSlider");
   }
 
   createCategory(data: any) {
-    return this.data.post(this.url1 + "api/v1/createcategory", data);
+    return this.data.post(this.url + "api/v1/createcategory", data);
   }
 
   getAllCategory(id = "") {
-    return this.data.get(this.url1 + "api/v1/getAllCategory");
+    return this.data.get(this.url + "api/v1/getAllCategory");
   }
 
   getCategoryById(id) {
-    return this.data.get(this.url1 + "api/v1/getCategoryById/" + id);
+    return this.data.get(this.url + "api/v1/getCategoryById/" + id);
   }
 
   createCourse(data: any) {
-    return this.data.post(this.url1 + "api/v1/createCourse", data);
+    return this.data.post(this.url + "api/v1/createCourse", data);
   }
   getAllCourse(id=""){
-   return this.data.get(this.url1 + 'api/v1/getAllCourse');
+   return this.data.get(this.url + 'api/v1/getAllCourse');
 }
 getCourseByid(id) {
-  return this.data.get(this.url1 + "api/v1/getCourseById/" + id);
+  return this.data.get(this.url + "api/v1/getCourseById/" + id);
 }
 createEmploye(data:any){
-  return this.data.post(this.url1 + "api/v1/createEmploye",data);
+  return this.data.post(this.url + "api/v1/createEmploye",data);
 }
 
 getEmploye(id=""){
- return this.data.get(this.url1 +'api/v1/getEmploye');
+ return this.data.get(this.url +'api/v1/getEmploye');
 }
 
 getEmployeById(id){
-  return this.data.get(this.url1 + "api/v1/getEmployeById/" + id)
+  return this.data.get(this.url + "api/v1/getEmployeById/" + id)
+}
+
+uploadImage(dam:any){
+  console.log(dam);
+return this.data.post(this.url+"api/v1/uploadImage",dam);
 }
 
 

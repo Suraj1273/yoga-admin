@@ -2,7 +2,7 @@
 <div class="page-header">
     <span>
     <h3 class="page-title">Mentors</h3><br>
-    <h6>Total 9 mentors(s)</h6>
+    <!-- <h6>Total 9 mentors(s)</h6> -->
 </span>
     <button
       type="button"
@@ -16,18 +16,22 @@
   <table class="table">
     <thead>
       <tr>
-        <th scope="col">name</th>
+        <th scope="col">Name</th>
         <th scope="col">Title</th>
-        <th scope="col">picture</th>
-        <th scope="col">intro</th>
+        <th scope="col">Picture</th>
+        <th scope="col">Thumbnail</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let item of userlist">
         <th scope="row">{{item.name}}</th>
         <td>{{item.title}}</td>
-        <td>{{item.picture}}</td>
-        <td>{{item.intro}}</td>
+        <td>
+          <img src="{{imageUrl}}{{item.picture}}" width="200px">
+        </td>
+        <td>
+          <img src="{{imageUrl}}{{item.thumb}}" width="200px">
+        </td>
       </tr>
     </tbody>
   </table>

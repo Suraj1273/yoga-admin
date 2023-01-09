@@ -7,18 +7,20 @@ import { ServiceService } from 'src/app/services/service.service';
 })
 export class MentorsComponent implements OnInit {
   userlist:any = {};
+  imageUrl:any;
   constructor(private service:ServiceService) {}
-  
+
   getmentorsdetails:any = [];
 
   ngOnInit(): void {
+    this.imageUrl = this.service.imageUrl;
     this.getAllMentor();
   }
 
   getAllMentor(){
     this.service.getAllMentor().subscribe((res:any)=>{
       console.log(res,'fgh');
-      
+
       this.userlist =  res.user;
       // console.warn(this.userlist);
     })

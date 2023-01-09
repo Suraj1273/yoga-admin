@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ThemeService } from 'ng2-charts';
 import { ServiceService } from 'src/app/services/service.service';
 @Component({
   selector: 'app-imageslider',
@@ -14,6 +13,7 @@ export class ImagesliderComponent implements OnInit {
   ngOnInit(): void {
     this.getimagevalues();
   }
+
   getimagevalues(){
     console.log(this.formData);
   }
@@ -21,9 +21,8 @@ export class ImagesliderComponent implements OnInit {
   createSlider(data:any){
     this.service.createSlider(data).subscribe((res)=>{
        this.result = res;
-       console.log(this.result,'dsafsfadsfasasdfsadfdfsfsdaf'); 
+       console.log(this.result,'dsafsfadsfasasdfsadfdfsfsdaf');
     })
   }
-
 
 }
