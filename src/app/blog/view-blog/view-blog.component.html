@@ -1,0 +1,38 @@
+
+<div class="page-header">
+  <span>
+  <h3 class="page-title">Mentors</h3><br>
+  <h6>Total {{blogList.length}} mentors(s)</h6>
+</span>
+  <button
+    type="button"
+    class="btn btn-outline-primary"
+    routerLink="/addmentor"
+  >
+    Add new Mentors
+  </button>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Slug</th>
+      <th>Status</th>
+      <th>Content</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of blogList">
+      <th scope="row">{{item.title}}</th>
+      <td>{{item.slug}}</td>
+      <td>{{item.slug}}</td>
+      <td>{{item.isActive ? "active" : "inactive"}}</td>
+      <td>
+        <a routerLink="/blog/{{item._id}}" class="btn btn-primary btn-sm">Edit</a>
+        <a href="javascript:void(0)" (click)="deleteBlog(item._id)" class="btn btn-danger btn-sm">Delete</a>
+      </td>
+    </tr>
+  </tbody>
+</table>

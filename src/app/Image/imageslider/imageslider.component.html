@@ -24,7 +24,7 @@
                 name="metatitle"
                 placeholder="Meta title"
                 class="form-control"
-                [(ngModel)]="formData.metatitle"             
+                [(ngModel)]="formData.metatitle"
               />
             </div>
 
@@ -36,25 +36,39 @@
                 name="metadesc"
                 placeholder="Meta discription"
                 class="form-control"
-                [(ngModel)]="formData.metadesc"              
+                [(ngModel)]="formData.metadesc"
                   />
             </div>
             <div class="form-group col-lg-10 float-left">
               <label>Meta Keyword</label>
-              <input           
+              <input
                 type="text"
                 value=""
                 name="metakeyword"
                 placeholder="Meta Keyword"
-                class="form-control"               
-                [(ngModel)]="formData.metakeyword"    
+                class="form-control"
+                [(ngModel)]="formData.metakeyword"
               />
             </div>
 
             <div class="form-group col-lg-10 float-left">
-              
-                <input type="file" title="Choose Image" name="fileimage"  [(ngModel)]="formData.fileimage">
+
+                <input type="file" title="Choose Image" name="fileimage" (change)="selectSlider($event)">
+
+                <div class="image-update mt-3" *ngIf="imageFetch">
+                  <img class="image-show" src="{{url}}{{imageFetch}}">
+                </div>
             </div>
+
+            <div class="form-group col-lg-10 float-left">
+              <label>Slider Title</label>
+              <input type="text" class="form-control" title="title" name="title"  [(ngModel)]="formData.title">
+          </div>
+          <div class="form-group col-lg-10 float-left">
+            <label>Slider Para</label>
+            <textarea name="para" id="" class="form-control" [(ngModel)]="formData.para" cols="30" rows="10"></textarea>
+            <!-- <app-ngx-editor [placeholder]="'Enter text here...'" [spellcheck]="true" [(ngModel)]="htmlContent"></app-ngx-editor> -->
+        </div>
 
             <div class="form-group col-lg-12 float-left">
               <button
