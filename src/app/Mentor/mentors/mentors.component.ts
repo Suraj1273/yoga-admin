@@ -27,7 +27,9 @@ export class MentorsComponent implements OnInit {
   }
 
   deleteMentor(id:any){
-   let val={
+    let temp = confirm("Are you sure you want to delete");
+ if(temp){
+  let val={
     "_id":id,
     "isActive":false
    };
@@ -40,6 +42,7 @@ export class MentorsComponent implements OnInit {
       alert('something went wrong');
     }
    });
+ }
 
   }
 
