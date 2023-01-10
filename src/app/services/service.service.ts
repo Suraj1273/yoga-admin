@@ -87,10 +87,17 @@ createBlog(data: any) {
   return this.data.post(this.url + "api/v1/createBlog", data);
 }
 getAllBlog(id=""){
-  return this.data.get(this.url + 'api/v1/getAllBlog');
+  return this.data.get(this.url + 'api/v1/getAllBlog'+id);
 }
 getBlogById(id){
   return this.data.get(this.url + "api/v1/getBlogById/" + id)
+}
+
+createMedia(data: any) {
+  return this.data.post(this.url + "api/v1/createMedia", data);
+}
+getAllMedia(id=""){
+  return this.data.get(this.url + 'api/v1/getAllMedia'+id);
 }
 
 

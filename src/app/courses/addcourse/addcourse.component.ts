@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute , Router} from '@angular/router';
 import { ServiceService } from 'src/app/services/service.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 @Component({
@@ -8,43 +8,45 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./addcourse.component.scss']
 })
 export class AddcourseComponent implements OnInit {
- details:any=[];
- empForm: FormGroup;
+ details:any;
  coursedetails:any={};
-  constructor(private service:ServiceService, private route: ActivatedRoute) {
-  this.empForm = new FormGroup({
-    coursetitle: new FormControl('',[Validators.required]), 
-    status: new FormControl('',[Validators.required]),
-    courseDesc: new FormControl('',[Validators.required]),
-    courseintro: new FormControl('',[Validators.required]),
-    courseintrovideoId: new FormControl('',[Validators.required]),
-    selectoption: new FormControl('',[Validators.required]),
-    metaTitle: new FormControl('',[Validators.required]),
-    metaKeyword: new FormControl('',[Validators.required]),
-    metaDescription: new FormControl('',[Validators.required]),
-  })
+  constructor(private service:ServiceService, private route: ActivatedRoute,private router:Router) {
+
 }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       return  this.route  = params['id']
     });
-  
+
     if(this.route){
-      console.log(this.route);
       this.getCourseById(this.route)
     }
   }
   createCourse(data:any){
-   this.service.createCourse(data).subscribe((res)=>{
-     this.details = res;
-     console.log(this.details,'adsfsadf')       
+    if(!this.route){
+      data.isActive = true;
+    }
+   this.service.createCourse(data).subscribe((res:any)=>{
+     if(res.status === 'ok'){
+   alert(res.msg);
+   this.router.navigate(['/course']);
+     }
+     else{
+       alert('something went wrong');
+     }
      })
    }
    getCourseById(id:any) {
     this.service.getCourseByid(id).subscribe((res:any) => {
-      this.coursedetails =  res.data;   
+      this.coursedetails =  res.data;
     });
+  }
+
+  getSlug(e:any){
+   let value = e.target.value;
+   let final = value.split(' ').join('-').toLowerCase();
+   this.coursedetails.slug = final;
   }
   }
 

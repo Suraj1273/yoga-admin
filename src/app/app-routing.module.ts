@@ -28,6 +28,7 @@ import { SubcategoryComponent } from './category/subcategory/subcategory.compone
 import { ContentComponent } from './courses/content/content.component';
 import { BlogComponent } from './blog/blog.component';
 import { ViewBlogComponent } from './blog/view-blog/view-blog.component';
+import { MediaComponent } from './media/media.component';
 const routes: Routes = [
   // { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   // { path: 'dashboard', component: DashboardComponent},
@@ -75,6 +76,7 @@ const routes: Routes = [
   {path:'blog',component:BlogComponent},
   {path:'blog/:id',component:BlogComponent},
   {path:'view-blog',component:ViewBlogComponent},
+  {path:'media',component:MediaComponent},
 ];
 
 @NgModule({

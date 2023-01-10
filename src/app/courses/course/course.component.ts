@@ -18,7 +18,7 @@ export class CourseComponent implements OnInit {
   getAllCourse(){
     this.service.getAllCourse().subscribe((res:any)=>{
       this.courseData = res.user;
-      console.log(this.courseData,'asdfsadfasf')
+      // console.log(this.courseData,'asdfsadfasf')
     })
   }
 }

@@ -40,6 +40,7 @@ import { ContentComponent } from './courses/content/content.component';
 import { EditorModule } from '@tinymce/tinymce-angular';
 import { BlogComponent } from './blog/blog.component';
 import { ViewBlogComponent } from './blog/view-blog/view-blog.component';
+import { MediaComponent } from './media/media.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -75,6 +76,7 @@ import { ViewBlogComponent } from './blog/view-blog/view-blog.component';
     ContentComponent,
     BlogComponent,
     ViewBlogComponent,
+    MediaComponent,
   ],
   imports: [
     BrowserModule,

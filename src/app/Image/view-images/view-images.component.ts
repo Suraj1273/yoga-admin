@@ -21,19 +21,24 @@ export class ViewImagesComponent implements OnInit {
     })
   }
   deleteSlider(id:any){
-    let val = {
-      "_id":id,
-      "isActive":false
+
+    let temp = confirm("Are you sure you want to delete");
+    if(temp){
+      let val = {
+        "_id":id,
+        "isActive":false
+      }
+      this.service.createSlider(val).subscribe((res:any)=>{
+        if(res.status == "ok"){
+          alert(res.msg);
+          location.reload();
+        }
+        else{
+          alert(res.msg);
+        }
+      })
     }
-    this.service.createSlider(val).subscribe((res:any)=>{
-      if(res.status == "ok"){
-        alert(res.msg);
-        location.reload();
-      }
-      else{
-        alert(res.msg);
-      }
-    })
+
   }
 
 }
