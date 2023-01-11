@@ -94,6 +94,12 @@
         <i class="mdi mdi-contacts menu-icon"></i>
       </a>
     </li>
+    <li class="nav-item" [ngClass]="{ 'active': pages.isActive }">
+      <a class="nav-link" routerLink="/pages" routerLinkActive #pages="routerLinkActive">
+        <span class="menu-title">Pages</span>
+        <i class="mdi mdi-contacts menu-icon"></i>
+      </a>
+    </li>
     <!-- <li class="nav-item" [ngClass]="{ 'active' : blankPage.isActive || login.isActive || register.isActive || error404.isActive || error500.isActive }">
       <a class="nav-link" (click)="samplePagesCollapsed = !samplePagesCollapsed"  [attr.aria-expanded]="samplePagesCollapsed" aria-controls="auth">
         <span class="menu-title">Sample Pages</span>

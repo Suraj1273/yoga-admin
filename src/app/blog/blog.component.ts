@@ -13,6 +13,7 @@ export class BlogComponent implements OnInit {
   formData:any={}
   blogId: any;
   url: any;
+  mentorList: any;
   constructor(private service:ServiceService,private router:Router,private acroute:ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -20,11 +21,18 @@ export class BlogComponent implements OnInit {
     this.acroute.params.subscribe(params => {
       return  this.blogId  = params['id']
     });
+   this.getAllMentor();
 
     if(this.blogId){
       this.getBlogById(this.blogId);
     }
 
+  }
+
+  getAllMentor(){
+    this.service.getAllMentor().subscribe((res:any)=>{
+      this.mentorList =  res.user;
+    })
   }
 
   createBlog(data:any){

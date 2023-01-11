@@ -49,13 +49,20 @@
 
           <div class="form-group col-lg-12">
             <label>Blog Author</label>
+            <select class="form-control" name="authorId" [(ngModel)]="formData.authorId">
+              <!-- <option value="undefined">Select Author</option> -->
+              <option *ngFor="let mentor of mentorList" value="{{mentor._id}}">{{mentor.name}}</option>
+            </select>
+          </div>
+          <div class="form-group col-lg-12">
+            <label>Blog Short Desc</label>
 
             <input
               type="text"
               class="form-control"
-              name="mentorstitle"
-              [(ngModel)]="formData.author"
-              placeholder="Blog Author"
+              name="shortDesc"
+              [(ngModel)]="formData.shortDesc"
+              placeholder="Blog short desc"
               class="form-control"
             />
           </div>

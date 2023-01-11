@@ -29,6 +29,8 @@ import { ContentComponent } from './courses/content/content.component';
 import { BlogComponent } from './blog/blog.component';
 import { ViewBlogComponent } from './blog/view-blog/view-blog.component';
 import { MediaComponent } from './media/media.component';
+import { FeeComponent } from './courses/fee/fee.component';
+import { PagesComponent } from './pages/pages.component';
 const routes: Routes = [
   // { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   // { path: 'dashboard', component: DashboardComponent},
@@ -77,6 +79,9 @@ const routes: Routes = [
   {path:'blog/:id',component:BlogComponent},
   {path:'view-blog',component:ViewBlogComponent},
   {path:'media',component:MediaComponent},
+  {path:'fee/:id',component:FeeComponent},
+  {path:'pages',component:PagesComponent},
+  {path:'pages/:id',component:PagesComponent},
 ];
 
 @NgModule({

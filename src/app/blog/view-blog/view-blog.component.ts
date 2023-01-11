@@ -11,16 +11,24 @@ export class ViewBlogComponent implements OnInit {
 
   blogList:any;
   imageUrl:any;
+  filter:any={};
+  p: number = 1;
+  total:any
   constructor(private service:ServiceService) {}
 
   ngOnInit(): void {
     this.imageUrl = this.service.imageUrl;
     this.getAllBlog();
+    this.filter={
+      pageNo:1,
+      size:10
+    };
   }
 
   getAllBlog(){
-    this.service.getAllBlog().subscribe((res:any)=>{
+    this.service.getAllBlog(this.filter).subscribe((res:any)=>{
       this.blogList =  res.data;
+      this.total = res.total;
       // console.warn(this.userlist);
     })
   }
@@ -41,4 +49,13 @@ export class ViewBlogComponent implements OnInit {
    });
 
   }
+  onTableDataChange(event: any) {
+    this.filter.pageNo = event;
+    this.getAllBlog();
+    this.p = event;
+    window.scrollTo({
+     top: 0,
+     behavior: 'smooth'
+   });
+ }
 }
