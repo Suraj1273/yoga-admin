@@ -41,6 +41,12 @@ import { EditorModule } from '@tinymce/tinymce-angular';
 import { BlogComponent } from './blog/blog.component';
 import { ViewBlogComponent } from './blog/view-blog/view-blog.component';
 import { MediaComponent } from './media/media.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { FeeComponent } from './courses/fee/fee.component';
+import { FaqComponent } from './courses/faq/faq.component';
+import { UpcomingEventComponent } from './courses/upcoming-event/upcoming-event.component';
+import { PagesComponent } from './pages/pages.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -77,6 +83,10 @@ import { MediaComponent } from './media/media.component';
     BlogComponent,
     ViewBlogComponent,
     MediaComponent,
+    FeeComponent,
+    FaqComponent,
+    UpcomingEventComponent,
+    PagesComponent,
   ],
   imports: [
     BrowserModule,
@@ -87,7 +97,8 @@ import { MediaComponent } from './media/media.component';
     ReactiveFormsModule,
     ChartsModule,
     HttpClientModule,
-    EditorModule
+    EditorModule,
+    NgxPaginationModule
   ],
   providers: [ThemeService],
   bootstrap: [AppComponent]

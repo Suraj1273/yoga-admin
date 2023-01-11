@@ -7,18 +7,32 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./course.component.scss']
 })
 export class CourseComponent implements OnInit {
-  courseData: any=[];
+  courseData: any;
+  filter:any={};
+  total:any;
+  p:any=1;
   constructor(private service:ServiceService,private route:ActivatedRoute) { }
- catId:any;
- response:any = [];
  ngOnInit(): void {
-  console.log(this.catId);
+  this.filter = {
+    pageNo:1,
+    size:10
+  }
   this.getAllCourse()
   }
   getAllCourse(){
-    this.service.getAllCourse().subscribe((res:any)=>{
-      this.courseData = res.user;
-      // console.log(this.courseData,'asdfsadfasf')
+    this.service.getAllCourse(this.filter).subscribe((res:any)=>{
+      this.courseData = res.data;
+      this.total = res.total;
     })
   }
+
+  onTableDataChange(event: any) {
+    this.filter.pageNo = event;
+    this.getAllCourse();
+    this.p = event;
+    window.scrollTo({
+     top: 0,
+     behavior: 'smooth'
+   });
+ }
 }

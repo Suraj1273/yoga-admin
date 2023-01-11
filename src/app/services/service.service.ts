@@ -60,8 +60,8 @@ export class ServiceService {
   createCourse(data: any) {
     return this.data.post(this.url + "api/v1/createCourse", data);
   }
-  getAllCourse(id=""){
-   return this.data.get(this.url + 'api/v1/getAllCourse');
+  getAllCourse(data:any){
+   return this.data.post(this.url + 'api/v1/getAllCourse',data);
 }
 getCourseByid(id) {
   return this.data.get(this.url + "api/v1/getCourseById/" + id);
@@ -86,8 +86,8 @@ return this.data.post(this.url+"api/v1/uploadImage",dam);
 createBlog(data: any) {
   return this.data.post(this.url + "api/v1/createBlog", data);
 }
-getAllBlog(id=""){
-  return this.data.get(this.url + 'api/v1/getAllBlog'+id);
+getAllBlog(data:any){
+  return this.data.post(this.url + 'api/v1/getAllBlog',data);
 }
 getBlogById(id){
   return this.data.get(this.url + "api/v1/getBlogById/" + id)
@@ -98,6 +98,17 @@ createMedia(data: any) {
 }
 getAllMedia(id=""){
   return this.data.get(this.url + 'api/v1/getAllMedia'+id);
+}
+
+createPage(data: any) {
+  return this.data.post(this.url + "api/v1/createPage", data);
+}
+
+getAllPages(id = "") {
+  return this.data.get(this.url + "api/v1/getAllPages");
+}
+getPageById(id:any) {
+  return this.data.get(this.url + "api/v1/getPageById/"+id);
 }
 
 
