@@ -46,6 +46,8 @@ import { FeeComponent } from './courses/fee/fee.component';
 import { FaqComponent } from './courses/faq/faq.component';
 import { UpcomingEventComponent } from './courses/upcoming-event/upcoming-event.component';
 import { PagesComponent } from './pages/pages.component';
+import { TestimonialComponent } from './testimonial/testimonial.component';
+import { SubCourseComponent } from './category/sub-course/sub-course.component';
 
 @NgModule({
   declarations: [
@@ -87,6 +89,8 @@ import { PagesComponent } from './pages/pages.component';
     FaqComponent,
     UpcomingEventComponent,
     PagesComponent,
+    TestimonialComponent,
+    SubCourseComponent,
   ],
   imports: [
     BrowserModule,

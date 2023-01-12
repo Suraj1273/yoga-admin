@@ -16,7 +16,7 @@ export class ServiceService {
   }
 
   getstudent(data: any) {
-    return this.data.get(this.url + "api/v1/student");
+    return this.data.post(this.url + "api/v1/student",data);
   }
 
   getstudentByid(id) {
@@ -50,7 +50,7 @@ export class ServiceService {
   }
 
   getAllCategory(id = "") {
-    return this.data.get(this.url + "api/v1/getAllCategory");
+    return this.data.get(this.url + "api/v1/getAllCategory"+id);
   }
 
   getCategoryById(id) {
@@ -109,6 +109,41 @@ getAllPages(id = "") {
 }
 getPageById(id:any) {
   return this.data.get(this.url + "api/v1/getPageById/"+id);
+}
+
+createTestimonial(data: any) {
+  return this.data.post(this.url + "api/v1/createTestimonial", data);
+}
+
+getAllTestimonial(id = "") {
+  return this.data.get(this.url + "api/v1/getAllTestimonial");
+}
+getTestimonialById(id:any) {
+  return this.data.get(this.url + "api/v1/getTestimonialById/"+id);
+}
+
+createSubCategory(data: any) {
+  return this.data.post(this.url + "api/v1/createSubcategory", data);
+}
+
+getAllSubCategory(id = "") {
+  return this.data.get(this.url + "api/v1/getAllSubCategory"+id);
+}
+
+getSubCategoryById(id) {
+  return this.data.get(this.url + "api/v1/getSubCategoryById/" + id);
+}
+
+createSubCourseCategory(data: any) {
+  return this.data.post(this.url + "api/v1/createSubCoursecategory", data);
+}
+
+getAllSubCourseCategory(id = "") {
+  return this.data.get(this.url + "api/v1/getAllSubCourseCategory"+id);
+}
+
+getSubCourseCategoryById(id) {
+  return this.data.get(this.url + "api/v1/getSubCourseCategoryById/" + id);
 }
 
 

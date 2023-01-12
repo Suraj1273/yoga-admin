@@ -2,13 +2,6 @@
   <h3 class="page-title">Category</h3>
   <br />
   <button
-  type="button"
-  class="btn btn-outline-primary"
-  routerLink="/subcategory"
->
-  Sub Category
-</button>
-  <button
     type="button"
     class="btn btn-outline-primary"
     routerLink="/add-category"
@@ -21,32 +14,24 @@
   <thead>
     <tr>
       <th scope="col">Category Name</th>
-      <th scope="col">Meta Title</th>
-      <th scope="col">Meta Description</th>
-      <th scope="col">Meta keyword</th>
+      <th scope="col">Status</th>
+      <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let data of categoryData">
       <th scope="row">{{ data.categoryname }}</th>
-      <td>{{ data.metatitle }}</td>
-      <td>{{ data.metadesc }}</td>
-      <td>{{ data.metakeyword }}</td>
-      <td><button class="btn-primary"  routerLink="/add-category/{{data._id}}">Edit</button></td>
+      <td>{{ data.isActive ? 'Active' : 'Inactive' }}</td>
       <td>
-        <button
-          type="button"
-          class="btn btn-primary btn-sm"
-          (click)="categoryDetails=data;openMediumModal(mediumModalContent)"
-        >
-          Edit<i class="mdi mdi-arrow-right-circle-outline ml-1"></i>
-        </button>
+        <button class="btn btn-primary btn-sm"  routerLink="/add-category/{{data._id}}">Edit</button>
+        <button class="btn btn-danger btn-sm"  (click)="deleteCategory(data._id)">Delete</button>
+        <button class="btn btn-info btn-sm"  routerLink="/subcategory/{{data._id}}">SubCategory</button>
       </td>
     </tr>
   </tbody>
 </table>
 
-<ng-template
+<!-- <ng-template
   #mediumModalContent
   let-modal
   class="modal fade"
@@ -102,7 +87,7 @@
         <button type="submit" class="btn btn-primary" (click)="submitdata();">Submit</button>
         <button type="reset" class="btn btn-primary">Reset</button>
       </div>
-     
+
     </form>
   </div>
-</ng-template>
+</ng-template> -->

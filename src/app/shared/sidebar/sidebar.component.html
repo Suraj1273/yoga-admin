@@ -77,7 +77,7 @@
       </a>
     </li>
     <li class="nav-item" [ngClass]="{ 'active': category.isActive }">
-      <a class="nav-link" routerLink="/view-categories" routerLinkActive #category="routerLinkActive">
+      <a class="nav-link" routerLink="/add-category" routerLinkActive #category="routerLinkActive">
         <span class="menu-title">Category</span>
         <i class="mdi mdi-contacts menu-icon"></i>
       </a>
@@ -97,6 +97,12 @@
     <li class="nav-item" [ngClass]="{ 'active': pages.isActive }">
       <a class="nav-link" routerLink="/pages" routerLinkActive #pages="routerLinkActive">
         <span class="menu-title">Pages</span>
+        <i class="mdi mdi-contacts menu-icon"></i>
+      </a>
+    </li>
+    <li class="nav-item" [ngClass]="{ 'active': testimonial.isActive }">
+      <a class="nav-link" routerLink="/testimonial" routerLinkActive #testimonial="routerLinkActive">
+        <span class="menu-title">Testimonial</span>
         <i class="mdi mdi-contacts menu-icon"></i>
       </a>
     </li>

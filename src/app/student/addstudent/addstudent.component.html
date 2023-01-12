@@ -14,7 +14,7 @@
     <div class="card">
       <div class="card-body">
         <h4 class="card-title">New Student information</h4>
-        <form  
+        <form
           class="forms-sample"
           #empForm="ngForm"
         >
@@ -54,7 +54,7 @@
                 name="email"
                 [(ngModel)]="userdetails.email"
                 placeholder="Enter firstname"
-                class="form-control"               
+                class="form-control"
               />
             </div>
             <div class="form-group col-lg-6 float-left">
@@ -68,7 +68,7 @@
                 placeholder="password"
                 class="form-control"
               />
-             
+
             </div>
             <div class="form-group col-lg-6 float-left">
               <label>Phone Number</label>
@@ -79,37 +79,18 @@
                 [(ngModel)]="userdetails.phoneNumber"
                 placeholder="Phone Number"
                 class="form-control"
-              
+
               />
             </div>
             <div class="form-group col-lg-6 float-left">
-              <label>Status</label>
-              <select class="form-control" name="status" [(ngModel)]="userdetails.status">
-                <option value="undefined">Select</option>
-                <option value="1">Active</option>
-                <option value="0">Inactive</option>
-              </select>
-            </div>
-            <div class="form-group col-lg-6 float-left">
-              <label>Permission</label>
-              <select class="form-control" name="type" [(ngModel)]="userdetails.type">
-                <option value="undefined">Select</option>
-                <option value="1">Admin</option>
-                <option value="2">Manager</option>
-                <option value="4">Employee</option>
-              </select>
-            </div>
-            <div class="form-group col-lg-6 float-left">
-              <label>starting Date</label>
+              <label>Enrollment Date</label>
 
               <input
                 type="date"
-                value="12/12/2022"
-                name="date"
-                [(ngModel)]="userdetails.date"
+                name="enrollmentDate"
+                [(ngModel)]="userdetails.enrollmentDate"
                 placeholder=""
                 class="form-control"
-              
               />
             </div>
             <div class="form-group col-lg-6 float-left">
