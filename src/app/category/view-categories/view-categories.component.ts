@@ -15,22 +15,22 @@ export class ViewCategoriesComponent implements OnInit {
   userid:any={};
   routeSub: any;
   constructor(private http:ServiceService,private modalService: NgbModal, private route: ActivatedRoute) {
- 
+
    }
   ngOnInit(): void {
-    this.getAllCategory(1);
+    this.getAllCategory();
 }
-  getAllCategory(data:any){
-    this.http.getAllCategory(data).subscribe((res:any)=>{
-   this.categoryData = res.user;
-   console.log(this.categoryData,'-----------');
+  getAllCategory(){
+    this.http.getAllCategory().subscribe((res:any)=>{
+      console.log(res);
+   this.categoryData = res.data;
     })
   }
-  
+
   openMediumModal( mediumModalContent ) {
     this.modalService.open( mediumModalContent );
   }
-  
+
   submitdata(){
     this.categoryDetails.subcategory.push(this.subDetails)
     this.createCategory();
@@ -40,6 +40,13 @@ export class ViewCategoriesComponent implements OnInit {
       // this.response = res;
       // console.log(this.response,'---------')
     })
+ }
+
+ deleteCategory(id:any){
+  let val={
+    "_id":id,
+    "isActive":false
+  }
  }
 
 }

@@ -31,6 +31,8 @@ import { ViewBlogComponent } from './blog/view-blog/view-blog.component';
 import { MediaComponent } from './media/media.component';
 import { FeeComponent } from './courses/fee/fee.component';
 import { PagesComponent } from './pages/pages.component';
+import { TestimonialComponent } from './testimonial/testimonial.component';
+import { SubCourseComponent } from './category/sub-course/sub-course.component';
 const routes: Routes = [
   // { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   // { path: 'dashboard', component: DashboardComponent},
@@ -72,6 +74,9 @@ const routes: Routes = [
   {path: 'add-category', component:AddCategoryComponent},
   {path: 'view-categories', component:ViewCategoriesComponent},
   {path: 'subcategory', component:SubcategoryComponent},
+  {path: 'subcategory/:id', component:SubcategoryComponent},
+  {path: 'subcategorycourse', component:SubCourseComponent},
+  {path: 'subcategorycourse/:id', component:SubCourseComponent},
   {path: 'add-category/:id', component:AddCategoryComponent},
   {path: 'content', component:ContentComponent},
   {path: 'content/:id',component:ContentComponent},
@@ -82,6 +87,8 @@ const routes: Routes = [
   {path:'fee/:id',component:FeeComponent},
   {path:'pages',component:PagesComponent},
   {path:'pages/:id',component:PagesComponent},
+  {path:'testimonial',component:TestimonialComponent},
+  {path:'testimonial/:id',component:TestimonialComponent}
 ];
 
 @NgModule({

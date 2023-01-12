@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from '../../services/service.service';
 import { FormControl, FormGroup  } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute,Router } from '@angular/router';
 import { toJSDate } from '@ng-bootstrap/ng-bootstrap/datepicker/ngb-calendar';
 @Component({
   selector: 'app-addstudent',
@@ -13,7 +13,7 @@ export class AddstudentComponent implements OnInit {
   userList: [];
   routeSub: any;
   userdetails:any=[];
-  constructor(private service:ServiceService, private route: ActivatedRoute) { }
+  constructor(private service:ServiceService, private route: ActivatedRoute,private router:Router) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -32,9 +32,15 @@ export class AddstudentComponent implements OnInit {
     }
 
   createStudent(data:any){
-    this.userdetails.isActive = true;
-   this.service.createStudent(this.userdetails).subscribe((res:any)=>{
-     this.userList = res;
+   data.isActive = true;
+    this.service.createStudent(data).subscribe((res:any)=>{
+     if(res.status == "ok"){
+      alert(res.msg);
+      this.router.navigate(['/view-student']);
+     }
+     else{
+      alert('something went wrong')
+     }
   })
 }
   getstudentByid(id) {

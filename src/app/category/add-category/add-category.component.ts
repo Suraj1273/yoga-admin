@@ -9,27 +9,32 @@ import { ActivatedRoute } from '@angular/router';
 export class AddCategoryComponent implements OnInit {
 
   categoryDetails:any={};
-  response:any= [];
+  categoryData:any;
   catId: any;
-  routeSub: any;
-  userdetails:any;
   constructor(private http:ServiceService,private route:ActivatedRoute) {}
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      return  this.routeSub  = params['id']
+      return  this.catId  = params['id']
     });
-
-    if(this.routeSub){
-      console.log(this.routeSub,'suraj');
-      this.getCategoryById(this.routeSub)
+  this.getAllCategory();
+    if(this.catId){
+      this.getCategoryById(this.catId)
     }
   }
 
  createCategory(data:any){
-    this.http.createCategory(data).subscribe((res:any)=>{
-      this.categoryDetails = res.Data;
-      console.log(res,'---------')
+  if(!this.catId){
+    data.isActive = true;
+  }
+  this.http.createCategory(data).subscribe((res:any)=>{
+      if(res.status == "ok"){
+        alert(res.msg);
+        location.reload();
+      }
+      else{
+        alert('something went wrong');
+      }
     })
  }
 
@@ -39,5 +44,18 @@ export class AddCategoryComponent implements OnInit {
      console.log(res.Data,'-----------------------------');
     });
   }
+  deleteCategory(id:any){
+    let val={
+      "_id":id,
+      "isActive":false
+    }
+   }
+
+   getAllCategory(){
+    this.http.getAllCategory().subscribe((res:any)=>{
+    this.categoryData = res.data;
+    })
+  }
  }
- 
+
+
