@@ -48,6 +48,7 @@ import { UpcomingEventComponent } from './courses/upcoming-event/upcoming-event.
 import { PagesComponent } from './pages/pages.component';
 import { TestimonialComponent } from './testimonial/testimonial.component';
 import { SubCourseComponent } from './category/sub-course/sub-course.component';
+import { CKEditorModule } from 'ngx-ckeditor';
 
 @NgModule({
   declarations: [
@@ -102,7 +103,8 @@ import { SubCourseComponent } from './category/sub-course/sub-course.component';
     ChartsModule,
     HttpClientModule,
     EditorModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    CKEditorModule
   ],
   providers: [ThemeService],
   bootstrap: [AppComponent]

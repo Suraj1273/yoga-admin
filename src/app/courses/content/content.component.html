@@ -42,12 +42,14 @@
             </div>
             <div class="form-group col-lg-12">
               <label>Content</label>
-              <editor
+              <!-- <editor
                 apiKey="test"
                 [init]="{ plugins: 'link' }"
                 name="para"
                 [(ngModel)]="contentData.para"
-              ></editor>
+              ></editor> -->
+            <ck-editor name="editor1" [(ngModel)]="contentData.para" skin="moono-lisa" language="en" [fullPage]="false"></ck-editor>
+
             </div>
             <div class="form-group">
               <button
