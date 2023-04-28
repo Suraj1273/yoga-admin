@@ -1,19 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { DashboardComponent } from './dashboard/dashboard.component';
-
-import { EmployeeComponent } from './employee/employee.component';
-import { TeamComponent } from './team/team.component';
-import { SettingsComponent } from './settings/settings.component';
-import { ProfileComponent } from './profile/profile.component';
-
-import { ExportComponent } from './export/export.component';
-import { NewApplicationComponent } from './new-application/new-application.component';
-import { BulkApplicationComponent } from './bulk-application/bulk-application.component';
-// import {AuthGuard} from './auth.guard';
-import { ClientComponent } from './client/client.component';
-import { ApplicationComponent } from './application/application.component';
-import { ChecksComponent } from './checks/checks.component';
+import {AuthGuard} from './auth.guard';
 import { AddstudentComponent } from './student/addstudent/addstudent.component';
 import { ViewStudentComponent } from './student/view-student/view-student.component';
 import { CourseComponent } from './courses/course/course.component';
@@ -33,23 +20,25 @@ import { FeeComponent } from './courses/fee/fee.component';
 import { PagesComponent } from './pages/pages.component';
 import { TestimonialComponent } from './testimonial/testimonial.component';
 import { SubCourseComponent } from './category/sub-course/sub-course.component';
+import { UpcomingEventComponent } from './courses/upcoming-event/upcoming-event.component';
+import { LoginComponent } from './user-pages/login/login.component';
 const routes: Routes = [
   // { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-  // { path: 'dashboard', component: DashboardComponent},
-  { path: 'client', component: ClientComponent },
-  // { path: 'client/:id', component: ClientComponent },
-  { path: '', redirectTo: '/course', pathMatch: 'full' },
-  { path: 'employee', component: EmployeeComponent },
-  { path: 'employee/:id', component: EmployeeComponent},
-  // { path: 'team', component: TeamComponent },
-  // { path: 'team/:id', component: TeamComponent },
-  // { path: 'profile', component: ProfileComponent },
-  // { path: 'setting', component: SettingsComponent },
-  // { path: 'export', component: ExportComponent },
-  // { path: 'new-application', component: NewApplicationComponent },
-  // { path: 'application', component: ApplicationComponent },
-  // { path: 'checks', component: ChecksComponent },
-  { path: 'bulk-application', component: BulkApplicationComponent },
+  // { path: 'dashboard', component: DashboardComponent,canActivate:[AuthGuard]},
+  // { path: 'client', component: ClientComponent },
+  // // { path: 'client/:id', component: ClientComponent },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  // { path: 'employee', component: EmployeeComponent,canActivate:[AuthGuard]},
+  // { path: 'employee/:id', component: EmployeeComponent,canActivate:[AuthGuard]},
+  // // { path: 'team', component: TeamComponent },
+  // // { path: 'team/:id', component: TeamComponent },
+  // // { path: 'profile', component: ProfileComponent },
+  // // { path: 'setting', component: SettingsComponent },
+  // // { path: 'export', component: ExportComponent },
+  // // { path: 'new-application', component: NewApplicationComponent },
+  // // { path: 'application', component: ApplicationComponent },
+  // // { path: 'checks', component: ChecksComponent },
+  // { path: 'bulk-application', component: BulkApplicationComponent },
   { path: 'basic-ui', loadChildren: () => import('./basic-ui/basic-ui.module').then(m => m.BasicUiModule) },
   { path: 'charts', loadChildren: () => import('./charts/charts.module').then(m => m.ChartsDemoModule) },
   { path: 'forms', loadChildren: () => import('./forms/form.module').then(m => m.FormModule) },
@@ -59,36 +48,39 @@ const routes: Routes = [
   { path: 'apps', loadChildren: () => import('./apps/apps.module').then(m => m.AppsModule) },
   { path: 'user-pages', loadChildren: () => import('./user-pages/user-pages.module').then(m => m.UserPagesModule) },
   { path: 'error-pages', loadChildren: () => import('./error-pages/error-pages.module').then(m => m.ErrorPagesModule) },
-  {path: 'addstudent', component: AddstudentComponent},
-  {path: 'addstudent/:id', component: AddstudentComponent},
-  {path: 'view-student', component: ViewStudentComponent},
-  {path: 'course', component: CourseComponent},
-  {path: 'addcourse', component: AddcourseComponent},
-  {path: 'addcourse/:id', component: AddcourseComponent},
-  {path: 'mentors', component: MentorsComponent},
-  {path: 'addmentor', component: AddmentorComponent},
-  {path: 'addmentor/:id', component: AddmentorComponent},
-  {path: 'imageslider', component:ImagesliderComponent},
-  {path: 'imageslider/:id', component:ImagesliderComponent},
-  {path: 'view-images', component:ViewImagesComponent},
-  {path: 'add-category', component:AddCategoryComponent},
-  {path: 'view-categories', component:ViewCategoriesComponent},
-  {path: 'subcategory', component:SubcategoryComponent},
-  {path: 'subcategory/:id', component:SubcategoryComponent},
-  {path: 'subcategorycourse', component:SubCourseComponent},
-  {path: 'subcategorycourse/:id', component:SubCourseComponent},
-  {path: 'add-category/:id', component:AddCategoryComponent},
-  {path: 'content', component:ContentComponent},
-  {path: 'content/:id',component:ContentComponent},
-  {path:'blog',component:BlogComponent},
-  {path:'blog/:id',component:BlogComponent},
-  {path:'view-blog',component:ViewBlogComponent},
-  {path:'media',component:MediaComponent},
-  {path:'fee/:id',component:FeeComponent},
-  {path:'pages',component:PagesComponent},
-  {path:'pages/:id',component:PagesComponent},
-  {path:'testimonial',component:TestimonialComponent},
-  {path:'testimonial/:id',component:TestimonialComponent}
+  {path: 'addstudent', component: AddstudentComponent,canActivate:[AuthGuard]},
+  {path: 'login', component: LoginComponent},
+  {path: 'addstudent/:id', component: AddstudentComponent,canActivate:[AuthGuard]},
+  {path: 'view-student', component: ViewStudentComponent,canActivate:[AuthGuard]},
+  {path: 'course', component: CourseComponent,canActivate:[AuthGuard]},
+  {path: 'addcourse', component: AddcourseComponent,canActivate:[AuthGuard]},
+  {path: 'addcourse/:id', component: AddcourseComponent,canActivate:[AuthGuard]},
+  {path: 'mentors', component: MentorsComponent,canActivate:[AuthGuard]},
+  {path: 'addmentor', component: AddmentorComponent,canActivate:[AuthGuard]},
+  {path: 'addmentor/:id', component: AddmentorComponent,canActivate:[AuthGuard]},
+  {path: 'imageslider', component:ImagesliderComponent,canActivate:[AuthGuard]},
+  {path: 'imageslider/:id', component:ImagesliderComponent,canActivate:[AuthGuard]},
+  {path: 'view-images', component:ViewImagesComponent,canActivate:[AuthGuard]},
+  {path: 'add-category', component:AddCategoryComponent,canActivate:[AuthGuard]},
+  {path: 'view-categories', component:ViewCategoriesComponent,canActivate:[AuthGuard]},
+  {path: 'subcategory', component:SubcategoryComponent,canActivate:[AuthGuard]},
+  {path: 'subcategory/:id', component:SubcategoryComponent,canActivate:[AuthGuard]},
+  {path: 'subcategorycourse', component:SubCourseComponent,canActivate:[AuthGuard]},
+  {path: 'subcategorycourse/:id', component:SubCourseComponent,canActivate:[AuthGuard]},
+  {path: 'add-category/:id', component:AddCategoryComponent,canActivate:[AuthGuard]},
+  {path: 'content', component:ContentComponent,canActivate:[AuthGuard]},
+  {path: 'content/:id',component:ContentComponent,canActivate:[AuthGuard]},
+  {path:'blog',component:BlogComponent,canActivate:[AuthGuard]},
+  {path:'blog/:id',component:BlogComponent,canActivate:[AuthGuard]},
+  {path:'view-blog',component:ViewBlogComponent,canActivate:[AuthGuard]},
+  {path:'media',component:MediaComponent,canActivate:[AuthGuard]},
+  {path:'fee/:id',component:FeeComponent,canActivate:[AuthGuard]},
+  {path:'pages',component:PagesComponent,canActivate:[AuthGuard]},
+  {path:'pages/:id',component:PagesComponent,canActivate:[AuthGuard]},
+  {path:'testimonial',component:TestimonialComponent,canActivate:[AuthGuard]},
+  {path:'testimonial/:id',component:TestimonialComponent,canActivate:[AuthGuard]},
+  {path: 'upEvent', component:UpcomingEventComponent,canActivate:[AuthGuard]},
+  {path: 'upEvent/:id',component:UpcomingEventComponent,canActivate:[AuthGuard]},
 ];
 
 @NgModule({

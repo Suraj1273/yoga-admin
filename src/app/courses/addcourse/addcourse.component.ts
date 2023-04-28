@@ -23,6 +23,20 @@ export class AddcourseComponent implements OnInit {
       this.getCourseById(this.route)
     }
   }
+  uploadMedia(e:any){
+    const formData = new FormData();
+    formData.append('image',e.target.files[0]);
+    formData.append('type','return');
+    this.service.uploadImage(formData).subscribe((res: any) => {
+       if(res.status == "ok"){
+        alert('Upload successful');
+        this.coursedetails.sliderImage = res.imageName
+       }
+       else{
+        alert("something went wrong")
+       }
+     });
+  }
   createCourse(data:any){
     if(!this.route){
       data.isActive = true;
@@ -44,9 +58,16 @@ export class AddcourseComponent implements OnInit {
   }
 
   getSlug(e:any){
-   let value = e.target.value;
-   let final = value.split(' ').join('-').toLowerCase();
-   this.coursedetails.slug = final;
+
+    let str = e.target.value
+    let s = str
+    .toLowerCase()
+    .trim()
+    .replace(/[^\w\s-]/g, '')
+    .replace(/[\s_-]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+
+   this.coursedetails.slug = s;
   }
   }
 

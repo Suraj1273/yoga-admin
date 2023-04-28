@@ -7,21 +7,20 @@ import { Router, NavigationEnd, NavigationStart, RouteConfigLoadStart, RouteConf
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit{
-  title = 'Verify Portal';
+  title = 'Yoga Vidya School';
   showSidebar: boolean = true;
   showNavbar: boolean = true;
   showFooter: boolean = true;
   isLoading: boolean;
   post:any;
+  userLogin:any;
   constructor(private router: Router){
-  //  this.post.getposts().subscribe((res)=>{
-  //    this.post = res;
-  //    console.log(this.post)
-  //  })
+    this.userLogin = sessionStorage.getItem('loginId');
     // Removing Sidebar, Navbar, Footer for Documentation, Error and Auth pages
-    router.events.forEach((event) => { 
+    router.events.forEach((event) => {
       if(event instanceof NavigationStart) {
-        if((event['url'] == '/user-pages/login') || (event['url'] == '/user-pages/register') || (event['url'] == '/error-pages/404') || (event['url'] == '/error-pages/500') ) {
+        //  console.log(event);
+        if( (event['url'] == '/') && !this.userLogin ||(event['url'] == '/login') || (event['url'] == '/user-pages/register') || (event['url'] == '/error-pages/404') || (event['url'] == '/error-pages/500') ) {
           this.showSidebar = false;
           this.showNavbar = false;
           this.showFooter = false;
@@ -45,7 +44,7 @@ export class AppComponent implements OnInit{
     });
 
     // Spinner for lazyload modules
-    router.events.forEach((event) => { 
+    router.events.forEach((event) => {
       if (event instanceof RouteConfigLoadStart) {
           this.isLoading = true;
       } else if (event instanceof RouteConfigLoadEnd) {

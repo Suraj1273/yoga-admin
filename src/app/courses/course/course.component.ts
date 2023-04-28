@@ -7,6 +7,7 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./course.component.scss']
 })
 export class CourseComponent implements OnInit {
+  isLoading = false;
   courseData: any;
   filter:any={};
   total:any;
@@ -20,9 +21,11 @@ export class CourseComponent implements OnInit {
   this.getAllCourse()
   }
   getAllCourse(){
+    this.isLoading = true;
     this.service.getAllCourse(this.filter).subscribe((res:any)=>{
       this.courseData = res.data;
       this.total = res.total;
+    this.isLoading = false;
     })
   }
 

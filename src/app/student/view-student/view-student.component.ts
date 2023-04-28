@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ["./view-student.component.scss"],
 })
 export class ViewStudentComponent implements OnInit {
+  isLoading =false;
   userList:any;
   id:any;
   filter:any={};
@@ -24,11 +25,11 @@ export class ViewStudentComponent implements OnInit {
   }
 
   getstudent() {
+    this.isLoading =true;
     this.service.getstudent(this.filter).subscribe((res:any) => {
        this.userList = res.data;
        this.total = res.total;
-       console.log(this.userList,'yyy');
-
+       this.isLoading =false;
     });
   }
 

@@ -9,8 +9,16 @@ export class ServiceService {
 
   private url = "http://localhost:3000/";
   public imageUrl = "http://localhost:3000/public/images/";
+  // private url = 'https://yogavidyaschool.com:3000/';
+  // public imageUrl = "https://yogavidyaschool.com:3000/public/images/";
 
   constructor(private data: HttpClient) {}
+
+
+  isLogedIn(){
+    return sessionStorage.getItem('loginId');
+  }
+
   createStudent(data: any) {
     return this.data.post(this.url + "api/v1/createStudent", data);
   }
@@ -62,6 +70,9 @@ export class ServiceService {
   }
   getAllCourse(data:any){
    return this.data.post(this.url + 'api/v1/getAllCourse',data);
+}
+getAllCourseV2(id=""){
+  return this.data.get(this.url + 'api/v1/getAllCourseV2');
 }
 getCourseByid(id) {
   return this.data.get(this.url + "api/v1/getCourseById/" + id);
@@ -146,5 +157,8 @@ getSubCourseCategoryById(id) {
   return this.data.get(this.url + "api/v1/getSubCourseCategoryById/" + id);
 }
 
+doLogin(data:any){
+  return this.data.post(this.url+"api/v1/doLogin",data);
+ }
 
 }

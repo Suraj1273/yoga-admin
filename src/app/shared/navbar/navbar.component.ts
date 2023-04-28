@@ -10,12 +10,14 @@ import { NgbDropdownConfig } from '@ng-bootstrap/ng-bootstrap';
 export class NavbarComponent implements OnInit {
   public iconOnlyToggled = false;
   public sidebarToggled = false;
-  
+  userName:any
+
   constructor(config: NgbDropdownConfig) {
     config.placement = 'bottom-right';
   }
 
   ngOnInit() {
+    this.userName = sessionStorage.getItem('name');
   }
 
   // toggle sidebar in small devices
@@ -47,5 +49,10 @@ export class NavbarComponent implements OnInit {
   // toggleRightSidebar() {
   //   document.querySelector('#right-sidebar').classList.toggle('open');
   // }
+
+  logOut(){
+    sessionStorage.clear();
+    location.reload();
+  }
 
 }

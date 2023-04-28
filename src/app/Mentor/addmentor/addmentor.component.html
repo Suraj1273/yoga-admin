@@ -28,9 +28,20 @@
               class="form-control"
               name="mentorsname"
               [(ngModel)]="formData.name"
+              (change)="getSlug($event)"
               placeholder="Mentor's Full Name"
+            />
+          </div>
+
+          <div class="form-group col-lg-12">
+            <label>Slug</label>
+            <input
+              type="text"
+              value=""
               class="form-control"
-              size="70"
+              name="slug"
+              [(ngModel)]="formData.slug"
+              (change)="getSlug($event)"
             />
           </div>
 
@@ -44,7 +55,6 @@
               name="mentorstitle"
               [(ngModel)]="formData.title"
               placeholder="Mentors Title"
-              class="form-control"
             />
           </div>
 

@@ -8,7 +8,7 @@ import { ServiceService } from 'src/app/services/service.service';
   styleUrls: ['./view-blog.component.scss']
 })
 export class ViewBlogComponent implements OnInit {
-
+ isLoading =false;
   blogList:any;
   imageUrl:any;
   filter:any={};
@@ -26,9 +26,11 @@ export class ViewBlogComponent implements OnInit {
   }
 
   getAllBlog(){
+    this.isLoading = true;
     this.service.getAllBlog(this.filter).subscribe((res:any)=>{
       this.blogList =  res.data;
       this.total = res.total;
+      this.isLoading =false
       // console.warn(this.userlist);
     })
   }

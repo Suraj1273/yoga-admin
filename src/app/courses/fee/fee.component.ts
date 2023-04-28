@@ -24,15 +24,16 @@ export class FeeComponent implements OnInit {
 
   getCourseById(id:any) {
     this.service.getCourseByid(id).subscribe((res:any) => {
-      this.formData = res.data.feeInfo[0];
+      this.formData = res?.data?.feeInfo[0];
     });
   }
 
   createFee(data:any){
     let val = {
       "_id":this.id,
-      "feeInfo":[data]
+      "feeInfo":data
     }
+    console.log(val);
     this.service.createCourse(val).subscribe((res:any)=>{
       if(res.status == 'ok'){
        alert(res.msg);

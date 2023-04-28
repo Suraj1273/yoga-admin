@@ -1,3 +1,4 @@
+<app-spinner *ngIf="isLoading"></app-spinner>
 <div class="page-header">
   <span>
     <h3 class="page-title">Courses</h3>
@@ -23,9 +24,9 @@
         <td style="color: green">{{data.isActive ? 'Active':'inActive'}}</td>
         <td>
           <a routerLink="/addcourse/{{data._id}}">Edit</a> |
-          <a routerLink="/content/{{data._id}}">Content</a> | <a href="#">Videos</a> |
-          <a routerLink="/fee/{{data._id}}">Fee</a> | <a href="#">FAQs</a> |
-          <a routerLink="">Upcoming Events</a>
+          <a routerLink="/content/{{data._id}}">Content</a> |
+          <a routerLink="/fee/{{data._id}}">Fee</a> |
+          <a routerLink="/upEvent/{{data._id}}">Upcoming Events</a>
         </td>
       </tr>
     </tbody>

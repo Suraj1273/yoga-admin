@@ -74,7 +74,7 @@
           <thead>
             <tr>
               <th >Title</th>
-              <th>order</th>
+              <!-- <th>order</th> -->
               <th>Actions</th>
             </tr>
           </thead>
@@ -83,9 +83,9 @@
               <td>
                {{cont.title}}
               </td>
-              <td>
+              <!-- <td>
                 {{cont.order}}
-              </td>
+              </td> -->
               <td class="text-end">
                 <a href="javascript:void(0)" class="btn btn-primary btn-sm" (click)="editContent(cont,i)">edit</a>
                 <a href="javascript:void(0)" class="btn btn-danger btn-sm" (click)="deleteContent(cont,i)">delete</a>
@@ -97,24 +97,3 @@
     </div>
   </div>
 </div>
-
-<!-- <div class="filter-side col-15 px-0">
-  <table [cellPadding]="10">
-    <thead class="table-secondary">
-      <th>NAV TITLE</th>
-      <th>NAV SECTION TITLE</th>
-      <th>ORDER</th>
-      <th>STATUS</th>
-      <th>ACTIONS</th>
-    </thead>
-    <tbody>
-      <tr class="table-light">
-        <td><a routerLink="">About 100 Hour Yoga TTC?</a></td>
-        <td>About 100 Hour Yoga TTC in Rishikesh</td>
-        <td>0</td>
-        <td>Acive</td>
-        <td><a routerLink="">Edit Nav</a></td>
-      </tr>
-    </tbody>
-  </table>
-</div> -->

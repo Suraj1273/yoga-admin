@@ -23,6 +23,7 @@ export class MediaComponent implements OnInit {
     formData.append('type','return');
     this.service.uploadImage(formData).subscribe((res: any) => {
        if(res.status == "ok"){
+        alert('Upload successful');
         this.formData.image = res.imageName
        }
        else{

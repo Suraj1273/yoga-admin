@@ -13,6 +13,7 @@ export class AddstudentComponent implements OnInit {
   userList: [];
   routeSub: any;
   userdetails:any=[];
+  courseList: any
   constructor(private service:ServiceService, private route: ActivatedRoute,private router:Router) { }
 
   ngOnInit(): void {
@@ -24,7 +25,7 @@ export class AddstudentComponent implements OnInit {
       console.log(this.routeSub);
       this.getstudentByid(this.routeSub)
     }
-    console.log(this.userdetails);
+    this.getAllCourseV2();
   }
   studentData(data:any){
        this.studentdetails = data;
@@ -32,7 +33,22 @@ export class AddstudentComponent implements OnInit {
     }
 
   createStudent(data:any){
-   data.isActive = true;
+    // console.log(data);
+   if(this.routeSub){
+    data._id = this.routeSub;
+    if(data.course.length > 0){
+      let arr = [];
+      arr = [...data.selected,...data.course]
+      console.log(arr);
+    }
+    else{
+      data.course = data.selected;
+      data.isActive = true;
+      data.source = 'admin';
+    }
+   }
+  //  console.log(data);
+  //  return
     this.service.createStudent(data).subscribe((res:any)=>{
      if(res.status == "ok"){
       alert(res.msg);
@@ -46,6 +62,14 @@ export class AddstudentComponent implements OnInit {
   getstudentByid(id) {
     this.service.getstudentByid(id).subscribe((res:any) => {
        this.userdetails = res.Data;
+       this.userdetails.selected = res.Data.course;
+    });
+  }
+  getAllCourseV2() {
+    this.service.getAllCourseV2().subscribe((res:any) => {
+      //  console.log(res);
+       this.courseList = res.data;
+
     });
   }
 

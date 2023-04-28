@@ -95,23 +95,9 @@
             </div>
             <div class="form-group col-lg-6 float-left">
               <label>SELECT COURSE</label>
-              <select multiplesize="6" [(ngModel)]="userdetails.course" name="course">
-                <option value="1">
-                  100 Hour Yoga Teacher Training in Rishikesh
-                </option>
-                <option value="2">
-                  200 HORAS DE FORMACIÓN DE PROFESORES DE YOGA EN RISHIKESH
-                </option>
-                <option value="3">
-                  200 Hour Yoga Teacher Training Course Online
-                </option>
-                <option value="3">
-                  200 Hour Yoga Teacher Training Course Online
-                </option>
-                <option value="3">
-                  200 Hour Yoga Teacher Training Course Online
-                </option>
-              </select>
+              <select name="mySelect" multiple class="form-control" [(ngModel)]="userdetails.selected">
+                <option *ngFor="let option of courseList" [value]="option._id">{{ option.coursetitle }}</option>
+            </select>
             </div>
 
             <div class="form-group col-lg-12 text-center float-left">

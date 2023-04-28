@@ -56,8 +56,4 @@ export class WebapiService {
     return this.http.get(this.url+"api/v1/getAllClient"+id);
    }
 
-   doLogin(data:any){
-    return this.http.post(this.url+"api/v1/doLogin",data);
-   }
-
 }

@@ -29,7 +29,7 @@
               name="mentorsname"
               [(ngModel)]="formData.title"
               placeholder="Blog title"
-              class="form-control"
+              (change)="getSlug($event)"
               size="70"
             />
           </div>
@@ -87,7 +87,7 @@
           </div>
 
           <div class="form-group col-lg-12">
-            <label>Blog Seo Keywords</label>
+            <label>Blog Seo Description</label>
 
             <input
               type="text"
@@ -100,7 +100,7 @@
           </div>
 
           <div class="form-group col-lg-12">
-           <p>Blog Image</p>
+           <p>Blog Image *(size should be less than 500kb)</p>
            <input type="file" name="blogImage" (change)="selectBlogImage($event)">
 
            <!-- <div class="thumb-image mt-3" *ngIf="thumbFetch">

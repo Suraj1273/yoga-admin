@@ -65,12 +65,9 @@
                                 <label class="form-label">Page Text</label>
                                 <div class="row g-2">
                                    <div class="col">
-                                    <editor
-                                    apiKey="test"
-                                    [init]="{ plugins: 'link' }"
-                                    name="text"
-                                    [(ngModel)]="formData.text"
-                                  ></editor>
+
+            <ck-editor name="editor1" [(ngModel)]="formData.text" skin="moono-lisa" language="en" [fullPage]="false"></ck-editor>
+
                                    </div>
                                 </div>
                              </div>

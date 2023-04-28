@@ -1,4 +1,4 @@
-
+<app-spinner *ngIf="isLoading"></app-spinner>
 <div class="page-header">
     <span>
     <h3 class="page-title">Students</h3><br>
@@ -17,7 +17,7 @@
     <thead>
       <tr>
         <th>Fistname</th>
-        <th>lastname</th>
+        <!-- <th>lastname</th> -->
         <th>Email Address</th>
         <th>status</th>
         <th>Enrollment Date</th>
@@ -26,7 +26,7 @@
     <tbody>
       <tr *ngFor="let data of userList | paginate: { itemsPerPage: 10, currentPage: p,totalItems: total }">
         <td>{{data.firstName}}</td>
-        <td>{{data.lastName}}</td>
+        <!-- <td>{{data.lastName}}</td> -->
         <td>{{data.email}}</td>
         <td>{{data.isActive ? 'Active':'Inactive'}}</td>
         <td>{{data.enrollmentDate}}</td>

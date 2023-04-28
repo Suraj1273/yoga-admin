@@ -53,7 +53,13 @@ export class BlogComponent implements OnInit {
   }
 
   selectBlogImage(e:any){
-    const formData = new FormData();
+    console.log(e.target.files);
+    if(e.target.files[0].size > 500000){
+      alert('File Size should be less than 500kb');
+      e.target.value = '';
+    }
+    else{
+      const formData = new FormData();
       formData.append('image',e.target.files[0]);
       formData.append('type','return');
       this.service.uploadImage(formData).subscribe((res: any) => {
@@ -64,11 +70,24 @@ export class BlogComponent implements OnInit {
           alert("something went wrong")
          }
        });
+    }
+
   }
 
   getBlogById(id:any){
     this.service.getBlogById(id).subscribe((res:any)=>{
      this.formData = res.data
     });
+  }
+
+  getSlug(e:any){
+    let str = e.target.value
+    let s = str
+    .toLowerCase()
+    .trim()
+    .replace(/[^\w\s-]/g, '')
+    .replace(/[\s_-]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+    this.formData.slug = s;
   }
 }
