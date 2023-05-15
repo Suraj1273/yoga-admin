@@ -65,6 +65,7 @@ export class BlogComponent implements OnInit {
       this.service.uploadImage(formData).subscribe((res: any) => {
          if(res.status == "ok"){
           this.formData.image = res.imageName
+          alert('Uploaded');
          }
          else{
           alert("something went wrong")

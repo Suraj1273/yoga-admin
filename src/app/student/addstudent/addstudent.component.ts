@@ -12,7 +12,7 @@ export class AddstudentComponent implements OnInit {
  studentdetails:any={};
   userList: [];
   routeSub: any;
-  userdetails:any=[];
+  userdetails:any={};
   courseList: any
   constructor(private service:ServiceService, private route: ActivatedRoute,private router:Router) { }
 
@@ -32,27 +32,40 @@ export class AddstudentComponent implements OnInit {
        console.log(this.studentdetails);
     }
 
+    checkEmail(e:any){
+      let val = {
+        email: e.target.value.replace(/\s/g, '')
+      }
+      this.service.checkEmail(val).subscribe((res:any)=>{
+        if(res.status == "ok"){
+          alert("email already exist");
+         e.target.value ='';
+        }
+     })
+    }
+
   createStudent(data:any){
-    // console.log(data);
    if(this.routeSub){
     data._id = this.routeSub;
     if(data.course.length > 0){
       let arr = [];
       arr = [...data.selected,...data.course]
-      console.log(arr);
-    }
-    else{
-      data.course = data.selected;
-      data.isActive = true;
-      data.source = 'admin';
+      let distArr = [...new Set(arr)];
+      data.course = distArr;
     }
    }
-  //  console.log(data);
-  //  return
+   data.course = data.selected;
+   data.isActive = true;
+   data.source = 'admin';
+//    console.log(data);
+// return
     this.service.createStudent(data).subscribe((res:any)=>{
      if(res.status == "ok"){
       alert(res.msg);
       this.router.navigate(['/view-student']);
+     }
+     else if(res.status == "error"){
+      alert(res.msg);
      }
      else{
       alert('something went wrong')

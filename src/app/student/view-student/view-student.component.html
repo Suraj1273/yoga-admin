@@ -4,6 +4,9 @@
     <h3 class="page-title">Students</h3><br>
     <h6>Total {{total}} student(s)</h6>
 </span>
+<div>
+  <input type="search" name="search" (keyup.enter)="searchStudent($event)" class="form-control" placeholder="Type Name here...">
+</div>
     <button
       type="button"
       class="btn btn-outline-primary"
@@ -16,11 +19,13 @@
   <table class="table">
     <thead>
       <tr>
-        <th>Fistname</th>
+        <th>Firstname</th>
         <!-- <th>lastname</th> -->
         <th>Email Address</th>
+        <th>password</th>
         <th>status</th>
         <th>Enrollment Date</th>
+        <th>Action</th>
       </tr>
     </thead>
     <tbody>
@@ -28,6 +33,7 @@
         <td>{{data.firstName}}</td>
         <!-- <td>{{data.lastName}}</td> -->
         <td>{{data.email}}</td>
+        <td>{{data.password}}</td>
         <td>{{data.isActive ? 'Active':'Inactive'}}</td>
         <td>{{data.enrollmentDate}}</td>
         <td><button type="button" style="color: rgb(75, 75, 214);" routerLink="/addstudent/{{data._id}}" >Edit</button></td>

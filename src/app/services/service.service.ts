@@ -7,10 +7,10 @@ import { HttpClient } from "@angular/common/http";
 export class ServiceService {
   // private url = "http://34.203.244.83:3000/";
 
-  private url = "http://localhost:3000/";
-  public imageUrl = "http://localhost:3000/public/images/";
-  // private url = 'https://yogavidyaschool.com:3000/';
-  // public imageUrl = "https://yogavidyaschool.com:3000/public/images/";
+  // private url = "http://localhost:3000/";
+  // public imageUrl = "http://localhost:3000/public/images/";
+  private url = 'https://yogavidyaschool.com:3000/';
+  public imageUrl = "https://yogavidyaschool.com:3000/public/images/";
 
   constructor(private data: HttpClient) {}
 
@@ -26,6 +26,10 @@ export class ServiceService {
   getstudent(data: any) {
     return this.data.post(this.url + "api/v1/student",data);
   }
+  checkEmail(data: any) {
+    return this.data.post(this.url + "api/v1/checkEmail",data);
+  }
+
 
   getstudentByid(id) {
     return this.data.get(this.url + "api/v1/student/" + id);
@@ -159,6 +163,9 @@ getSubCourseCategoryById(id) {
 
 doLogin(data:any){
   return this.data.post(this.url+"api/v1/doLogin",data);
+ }
+ searchStudent(data:any){
+  return this.data.post(this.url+"api/v1/searchStudent",data);
  }
 
 }

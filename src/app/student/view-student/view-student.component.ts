@@ -18,15 +18,16 @@ export class ViewStudentComponent implements OnInit {
 
   ngOnInit(){
     this.filter={
+      firstName:"",
       pageNo:1,
       size:10
     };
-    this.getstudent();
+    this.getstudent(this.filter);
   }
 
-  getstudent() {
+  getstudent(filter:any) {
     this.isLoading =true;
-    this.service.getstudent(this.filter).subscribe((res:any) => {
+    this.service.getstudent(filter).subscribe((res:any) => {
        this.userList = res.data;
        this.total = res.total;
        this.isLoading =false;
@@ -35,7 +36,7 @@ export class ViewStudentComponent implements OnInit {
 
   onTableDataChange(event: any) {
     this.filter.pageNo = event;
-    this.getstudent();
+    this.getstudent(this.filter);
     this.p = event;
     window.scrollTo({
      top: 0,
@@ -61,6 +62,11 @@ export class ViewStudentComponent implements OnInit {
    })
   }
 
+ }
+
+ searchStudent(e:any){
+    this.filter.firstName = e.target.value;
+    this.getstudent(this.filter);
  }
 
 }
