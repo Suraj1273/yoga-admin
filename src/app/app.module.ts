@@ -40,6 +40,7 @@ import { TestimonialComponent } from './testimonial/testimonial.component';
 import { SubCourseComponent } from './category/sub-course/sub-course.component';
 import { LoginComponent } from './user-pages/login/login.component';
 import { CKEditorModule } from 'ngx-ckeditor';
+import { VideoReviewComponent } from './video-review/video-review.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +73,8 @@ import { CKEditorModule } from 'ngx-ckeditor';
     PagesComponent,
     TestimonialComponent,
     SubCourseComponent,
-    LoginComponent
+    LoginComponent,
+    VideoReviewComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

@@ -22,6 +22,7 @@ import { TestimonialComponent } from './testimonial/testimonial.component';
 import { SubCourseComponent } from './category/sub-course/sub-course.component';
 import { UpcomingEventComponent } from './courses/upcoming-event/upcoming-event.component';
 import { LoginComponent } from './user-pages/login/login.component';
+import { VideoReviewComponent } from './video-review/video-review.component';
 const routes: Routes = [
   // { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   // { path: 'dashboard', component: DashboardComponent,canActivate:[AuthGuard]},
@@ -81,6 +82,7 @@ const routes: Routes = [
   {path:'testimonial/:id',component:TestimonialComponent,canActivate:[AuthGuard]},
   {path: 'upEvent', component:UpcomingEventComponent,canActivate:[AuthGuard]},
   {path: 'upEvent/:id',component:UpcomingEventComponent,canActivate:[AuthGuard]},
+  {path: 'video-review',component:VideoReviewComponent,canActivate:[AuthGuard]},
 ];
 
 @NgModule({

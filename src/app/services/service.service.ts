@@ -11,6 +11,7 @@ export class ServiceService {
   // public imageUrl = "http://localhost:3000/public/images/";
   private url = 'https://yogavidyaschool.com:3000/';
   public imageUrl = "https://yogavidyaschool.com:3000/public/images/";
+  public videoUrl = "https://yogavidyaschool.com:3000/public/video/";
 
   constructor(private data: HttpClient) {}
 
@@ -167,5 +168,9 @@ doLogin(data:any){
  searchStudent(data:any){
   return this.data.post(this.url+"api/v1/searchStudent",data);
  }
+
+ getAllVideoReviews(data: any) {
+  return this.data.post(this.url + "api/v1/getAllVideoReviews",data);
+}
 
 }
