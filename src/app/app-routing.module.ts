@@ -23,6 +23,9 @@ import { SubCourseComponent } from './category/sub-course/sub-course.component';
 import { UpcomingEventComponent } from './courses/upcoming-event/upcoming-event.component';
 import { LoginComponent } from './user-pages/login/login.component';
 import { VideoReviewComponent } from './video-review/video-review.component';
+import { ContactInquiryComponent } from './contact-inquiry/contact-inquiry.component';
+import { PaymentDetailsComponent } from './payment-details/payment-details.component';
+import { UploadedVideosComponent } from './uploaded-videos/uploaded-videos.component';
 const routes: Routes = [
   // { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   // { path: 'dashboard', component: DashboardComponent,canActivate:[AuthGuard]},
@@ -83,6 +86,10 @@ const routes: Routes = [
   {path: 'upEvent', component:UpcomingEventComponent,canActivate:[AuthGuard]},
   {path: 'upEvent/:id',component:UpcomingEventComponent,canActivate:[AuthGuard]},
   {path: 'video-review',component:VideoReviewComponent,canActivate:[AuthGuard]},
+  {path: 'inquiry',component:ContactInquiryComponent,canActivate:[AuthGuard]},
+  {path: 'payment-details',component:PaymentDetailsComponent,canActivate:[AuthGuard]},
+  {path: 'course-video/:id',component:UploadedVideosComponent,canActivate:[AuthGuard]},
+
 ];
 
 @NgModule({

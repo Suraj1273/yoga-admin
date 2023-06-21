@@ -1,0 +1,30 @@
+<section class="text-center mb-3">
+  <div class="container d-flex justify-content-center align-items-center">
+    <p class="h4 mx-3">{{title}}</p>
+    <a href="javascript:void(0)" class="btn btn-primary btn-lg">Upload Video</a>
+  </div>
+</section>
+
+<section class="videos">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-md-6 mb-4" *ngFor="let vid of videoList">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{vid.id}}</h5>
+            <div class="video-container">
+              <video
+                src="{{ vid.url }}"
+                preload="auto"
+                controls
+                controlsList="nodownload"
+              >
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

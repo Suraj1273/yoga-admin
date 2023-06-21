@@ -31,6 +31,23 @@ export class ViewStudentComponent implements OnInit {
        this.userList = res.data;
        this.total = res.total;
        this.isLoading =false;
+
+       for (const it of this.userList) {
+        console.log(it.course.length);
+
+        if(it.course.length > 0) {
+          if(it.course.includes("644f9dfc499ffcfb45df35cd")){
+            it.pranCounter = true;
+          }
+          else{
+            it.pranCounter = false;
+          }
+        }
+        else{
+          it.pranCounter = false;
+        }
+      }
+      console.log(this.userList,'-------');
     });
   }
 
@@ -67,6 +84,26 @@ export class ViewStudentComponent implements OnInit {
  searchStudent(e:any){
     this.filter.firstName = e.target.value;
     this.getstudent(this.filter);
+ }
+
+ setAccess(id:any){
+  let c = confirm("Are you sure you want to Give Access?");
+  if(c){
+    let val={
+      "studentId":id,
+     }
+     this.service.setAccessPran(val).subscribe((res:any)=>{
+       console.log(res,'---');
+       if(res.status == "ok"){
+        alert("Access has been granted and emailed.");
+        this.getstudent(this.filter);
+       }
+       else{
+        console.log('sowething went wrong..');
+
+       }
+   })
+  }
  }
 
 }

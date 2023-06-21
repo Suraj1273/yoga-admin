@@ -36,8 +36,10 @@
         <td>{{data.password}}</td>
         <td>{{data.isActive ? 'Active':'Inactive'}}</td>
         <td>{{data.enrollmentDate}}</td>
-        <td><button type="button" style="color: rgb(75, 75, 214);" routerLink="/addstudent/{{data._id}}" >Edit</button></td>
-        <td><button type="button" style="color: rgb(235, 66, 66);" (click)="deleteStudent(data._id)">Delete</button></td>
+        <td><button type="button" class="btn btn-primary btn-lg" routerLink="/addstudent/{{data._id}}" >Edit</button></td>
+        <td><button type="button"  class="btn btn-danger btn-lg" (click)="deleteStudent(data._id)">Delete</button></td>
+        <td *ngIf="data.pranCounter === false"><button type="button"  class="btn btn-info btn-lg" (click)="setAccess(data._id)">Give Prana Arambha Access</button></td>
+        <td *ngIf="data.pranCounter === true"><button type="button"  class="btn btn-warning btn-lg">Already Given</button></td>
       </tr>
     </tbody>
   <pagination-controls (pageChange)="onTableDataChange($event)"></pagination-controls>

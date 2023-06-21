@@ -172,5 +172,22 @@ doLogin(data:any){
  getAllVideoReviews(data: any) {
   return this.data.post(this.url + "api/v1/getAllVideoReviews",data);
 }
+getAllInquiry(data: any) {
+  return this.data.post(this.url + "api/v1/getAllInquiry",data);
+}
+getAllPayment(data: any) {
+  return this.data.post(this.url + "api/v1/getAllPayment",data);
+}
+
+exportFile(id:any=""){
+  return this.data.get(this.url+"api/v1/exportInquiry",{ responseType: 'arraybuffer' });
+}
+
+getCourseVideoV2(data: any) {
+  return this.data.post(this.url + "api/v1/getCourseVideosById", data);
+}
+setAccessPran(data: any) {
+  return this.data.post(this.url + "api/v1/setAccessPran", data);
+}
 
 }

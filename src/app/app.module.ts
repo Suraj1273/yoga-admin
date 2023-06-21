@@ -41,6 +41,9 @@ import { SubCourseComponent } from './category/sub-course/sub-course.component';
 import { LoginComponent } from './user-pages/login/login.component';
 import { CKEditorModule } from 'ngx-ckeditor';
 import { VideoReviewComponent } from './video-review/video-review.component';
+import { ContactInquiryComponent } from './contact-inquiry/contact-inquiry.component';
+import { PaymentDetailsComponent } from './payment-details/payment-details.component';
+import { UploadedVideosComponent } from './uploaded-videos/uploaded-videos.component';
 
 @NgModule({
   declarations: [
@@ -74,7 +77,10 @@ import { VideoReviewComponent } from './video-review/video-review.component';
     TestimonialComponent,
     SubCourseComponent,
     LoginComponent,
-    VideoReviewComponent
+    VideoReviewComponent,
+    ContactInquiryComponent,
+    PaymentDetailsComponent,
+    UploadedVideosComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

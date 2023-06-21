@@ -26,7 +26,8 @@
           <a routerLink="/addcourse/{{data._id}}">Edit</a> |
           <a routerLink="/content/{{data._id}}">Content</a> |
           <a routerLink="/fee/{{data._id}}">Fee</a> |
-          <a routerLink="/upEvent/{{data._id}}">Upcoming Events</a>
+          <a routerLink="/upEvent/{{data._id}}">Upcoming Events</a> |
+          <a *ngIf="data._id == '63c3f26c461e531f3c3452e1' || data._id == '644f9dfc499ffcfb45df35cd'" routerLink="/course-video/{{data._id}}">Uploaded Course Videos</a> |
         </td>
       </tr>
     </tbody>

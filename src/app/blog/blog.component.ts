@@ -14,6 +14,7 @@ export class BlogComponent implements OnInit {
   blogId: any;
   url: any;
   mentorList: any;
+  isLoading: boolean =false;
   constructor(private service:ServiceService,private router:Router,private acroute:ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -53,10 +54,13 @@ export class BlogComponent implements OnInit {
   }
 
   selectBlogImage(e:any){
+    this.isLoading =true;
     console.log(e.target.files);
     if(e.target.files[0].size > 500000){
       alert('File Size should be less than 500kb');
       e.target.value = '';
+    this.isLoading =false;
+
     }
     else{
       const formData = new FormData();
@@ -64,6 +68,8 @@ export class BlogComponent implements OnInit {
       formData.append('type','return');
       this.service.uploadImage(formData).subscribe((res: any) => {
          if(res.status == "ok"){
+    this.isLoading =false;
+
           this.formData.image = res.imageName
           alert('Uploaded');
          }
