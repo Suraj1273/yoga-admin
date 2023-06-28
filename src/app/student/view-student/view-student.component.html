@@ -38,8 +38,14 @@
         <td>{{data.enrollmentDate}}</td>
         <td><button type="button" class="btn btn-primary btn-lg" routerLink="/addstudent/{{data._id}}" >Edit</button></td>
         <td><button type="button"  class="btn btn-danger btn-lg" (click)="deleteStudent(data._id)">Delete</button></td>
-        <td *ngIf="data.pranCounter === false"><button type="button"  class="btn btn-info btn-lg" (click)="setAccess(data._id)">Give Prana Arambha Access</button></td>
-        <td *ngIf="data.pranCounter === true"><button type="button"  class="btn btn-warning btn-lg">Already Given</button></td>
+        <td>
+          <button *ngIf="data.pranCounter === false" type="button"  class="btn btn-info btn-lg" (click)="setAccess(data._id)">Give Prana Arambha Access</button>
+          <button *ngIf="data.pranCounter === true" type="button"  class="btn btn-warning btn-lg">Prana Arambha Enrolled</button>
+        </td>
+        <td>
+          <button *ngIf="data.fCounter === false" type="button"  class="btn btn-info btn-lg" (click)="setAccessV2(data._id)">Give Foundation Access</button>
+          <button *ngIf="data.fCounter === true" type="button"  class="btn btn-warning btn-lg">Foundation Enrolled</button>
+        </td>
       </tr>
     </tbody>
   <pagination-controls (pageChange)="onTableDataChange($event)"></pagination-controls>

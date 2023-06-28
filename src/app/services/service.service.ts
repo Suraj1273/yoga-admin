@@ -7,9 +7,9 @@ import { HttpClient } from "@angular/common/http";
 export class ServiceService {
   // private url = "http://34.203.244.83:3000/";
 
-  // private url = "http://localhost:3000/";
+  private url = "http://localhost:3000/";
   // public imageUrl = "http://localhost:3000/public/images/";
-  private url = 'https://yogavidyaschool.com:3000/';
+  // private url = 'https://yogavidyaschool.com:3000/';
   public imageUrl = "https://yogavidyaschool.com:3000/public/images/";
   public videoUrl = "https://yogavidyaschool.com:3000/public/video/";
 
@@ -188,6 +188,33 @@ getCourseVideoV2(data: any) {
 }
 setAccessPran(data: any) {
   return this.data.post(this.url + "api/v1/setAccessPran", data);
+}
+setAccessFoundation(data: any) {
+  return this.data.post(this.url + "api/v1/setAccessFoundation", data);
+}
+
+getCourseVideoDataById(id) {
+  return this.data.get(this.url + "api/v1/getCourseVideoDataById/" + id);
+}
+
+createVideo(data: any) {
+  return this.data.post(this.url + "api/v1/createVideo", data);
+}
+
+getAllCourseAdmin(id = "") {
+  return this.data.get(this.url + "api/v1/getAllCourseAdmin");
+}
+
+uploadVideo(data: any) {
+  return this.data.post(this.url + "api/v1/uploadVideo", data);
+}
+
+insertVideo(data: any) {
+  return this.data.post(this.url + "api/v1/uploadOnlineVideo", data);
+}
+
+getAnalyticsByDate(data: any) {
+  return this.data.post(this.url + "api/v1/getAnalyticsByDate", data);
 }
 
 }

@@ -29,16 +29,15 @@ export class UploadedVideosComponent implements OnInit {
     "courseId":id
    }
    this.service.getCourseVideoV2(val).subscribe((res:any) => {
-    // console.log(res.sort(),'--');
-    console.log(res,'--');
-    this.videoList = res;
+    // console.log(res,'--');
+    this.videoList = res.slice().sort((a,b) =>a.sortBy - b.sortBy);
 
   });
   }
 
   getCourseByIdV2(id:any){
     this.service.getCourseByid(id).subscribe((res:any) => {
-     console.log(res,'--');
+    //  console.log(res,'--');
      this.title = res.data.coursetitle;
    });
    }

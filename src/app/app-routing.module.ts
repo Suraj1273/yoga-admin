@@ -26,6 +26,9 @@ import { VideoReviewComponent } from './video-review/video-review.component';
 import { ContactInquiryComponent } from './contact-inquiry/contact-inquiry.component';
 import { PaymentDetailsComponent } from './payment-details/payment-details.component';
 import { UploadedVideosComponent } from './uploaded-videos/uploaded-videos.component';
+import { VideoEditComponent } from './video-edit/video-edit.component';
+import { OnlineVideoUploadComponent } from './online-video-upload/online-video-upload.component';
+import { AnalyticsComponent } from './analytics/analytics.component';
 const routes: Routes = [
   // { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   // { path: 'dashboard', component: DashboardComponent,canActivate:[AuthGuard]},
@@ -89,6 +92,9 @@ const routes: Routes = [
   {path: 'inquiry',component:ContactInquiryComponent,canActivate:[AuthGuard]},
   {path: 'payment-details',component:PaymentDetailsComponent,canActivate:[AuthGuard]},
   {path: 'course-video/:id',component:UploadedVideosComponent,canActivate:[AuthGuard]},
+  {path: 'edit/:id',component:VideoEditComponent,canActivate:[AuthGuard]},
+  {path: 'video-upload',component:OnlineVideoUploadComponent,canActivate:[AuthGuard]},
+  {path: 'analytics',component:AnalyticsComponent,canActivate:[AuthGuard]},
 
 ];
 

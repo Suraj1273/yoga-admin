@@ -44,6 +44,9 @@ import { VideoReviewComponent } from './video-review/video-review.component';
 import { ContactInquiryComponent } from './contact-inquiry/contact-inquiry.component';
 import { PaymentDetailsComponent } from './payment-details/payment-details.component';
 import { UploadedVideosComponent } from './uploaded-videos/uploaded-videos.component';
+import { VideoEditComponent } from './video-edit/video-edit.component';
+import { OnlineVideoUploadComponent } from './online-video-upload/online-video-upload.component';
+import { AnalyticsComponent } from './analytics/analytics.component';
 
 @NgModule({
   declarations: [
@@ -80,7 +83,10 @@ import { UploadedVideosComponent } from './uploaded-videos/uploaded-videos.compo
     VideoReviewComponent,
     ContactInquiryComponent,
     PaymentDetailsComponent,
-    UploadedVideosComponent
+    UploadedVideosComponent,
+    VideoEditComponent,
+    OnlineVideoUploadComponent,
+    AnalyticsComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

@@ -39,15 +39,16 @@ export class ViewStudentComponent implements OnInit {
           if(it.course.includes("644f9dfc499ffcfb45df35cd")){
             it.pranCounter = true;
           }
-          else{
-            it.pranCounter = false;
+          else if(it.course.includes("63c4de4a2bce43a907211c74")){
+            it.fCounter = true;
           }
         }
         else{
           it.pranCounter = false;
+          it.fCounter = false;
         }
       }
-      console.log(this.userList,'-------');
+      // console.log(this.userList,'-------');
     });
   }
 
@@ -93,6 +94,26 @@ export class ViewStudentComponent implements OnInit {
       "studentId":id,
      }
      this.service.setAccessPran(val).subscribe((res:any)=>{
+       console.log(res,'---');
+       if(res.status == "ok"){
+        alert("Access has been granted and emailed.");
+        this.getstudent(this.filter);
+       }
+       else{
+        console.log('sowething went wrong..');
+
+       }
+   })
+  }
+ }
+
+ setAccessV2(id:any){
+  let c = confirm("Are you sure you want to Give Access?");
+  if(c){
+    let val={
+      "studentId":id,
+     }
+     this.service.setAccessFoundation(val).subscribe((res:any)=>{
        console.log(res,'---');
        if(res.status == "ok"){
         alert("Access has been granted and emailed.");

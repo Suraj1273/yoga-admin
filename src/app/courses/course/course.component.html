@@ -23,11 +23,11 @@
         <td><a routerLink="#">{{data.slug}}</a></td>
         <td style="color: green">{{data.isActive ? 'Active':'inActive'}}</td>
         <td>
-          <a routerLink="/addcourse/{{data._id}}">Edit</a> |
-          <a routerLink="/content/{{data._id}}">Content</a> |
-          <a routerLink="/fee/{{data._id}}">Fee</a> |
-          <a routerLink="/upEvent/{{data._id}}">Upcoming Events</a> |
-          <a *ngIf="data._id == '63c3f26c461e531f3c3452e1' || data._id == '644f9dfc499ffcfb45df35cd'" routerLink="/course-video/{{data._id}}">Uploaded Course Videos</a> |
+          <a class="btn btn-primary btn-sm mx-2 my-2" routerLink="/addcourse/{{data._id}}">Edit</a>
+          <a class="btn btn-primary btn-sm mx-2 my-2" routerLink="/content/{{data._id}}">Content</a>
+          <a class="btn btn-primary btn-sm mx-2 my-2" routerLink="/fee/{{data._id}}">Fee</a>
+          <a class="btn btn-primary btn-sm mx-2 my-2" routerLink="/upEvent/{{data._id}}">Upcoming Events</a>
+          <a class="btn btn-primary btn-sm mx-2 my-2" *ngIf="data._id == '63c3f26c461e531f3c3452e1' || data._id == '644f9dfc499ffcfb45df35cd'" routerLink="/course-video/{{data._id}}">Uploaded Course Videos</a>
         </td>
       </tr>
     </tbody>
